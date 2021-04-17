@@ -3,14 +3,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { Helmet } from "react-helmet";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Helmet>
-        <title>Wirewalk</title>
-    </Helmet>
   </React.StrictMode>,
   document.getElementById("root")
 );
