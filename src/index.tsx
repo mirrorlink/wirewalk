@@ -10,7 +10,6 @@ ReactDOM.render(
     <App />
     <Helmet>
         <title>Wirewalk</title>
-        <link rel="icon" type="image/png" href="favicon.ico" sizes="16x16" />
     </Helmet>
   </React.StrictMode>,
   document.getElementById("root")
