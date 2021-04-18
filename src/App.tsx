@@ -13,7 +13,7 @@ function App(): any {
       <div className="App">
         <header className="App-header">
           <p className="MainText">
-            An Action-RPG Where you Raid virus-infected digital systems for the lols.
+            An Action-RPG Game Where you Raid virus-infected digital systems for the lols.
           </p>
 
 
@@ -47,7 +47,7 @@ function App(): any {
               alignItems="center"
               justifyContent="center">
                 <p className="MainTextMobile">
-                  An Action-RPG Where you Raid virus-infected digital systems for the lols.
+                  An Action-RPG Game Where you Raid virus-infected digital systems for the lols.
                 </p>
             </Box>
             </ListItem>
