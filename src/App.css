@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  background-image: url("./images/char_only.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  height: 100vh;
+}
+
+.AppMobile {
+  text-align: center;
+  height: 100vh;
+}
+
+.imgMobile {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .App-header {
@@ -17,11 +33,17 @@
   position: absolute;
   top: 50px;
   left: 50px;
-  max-width: 400px;
+  max-width: 300px;
+}
+
+.MainTextMobile {
+  color: #d0d5a4;
+  font-family: wwfont;
+  font-size: 30px;
+  text-align: center;
 }
 
 .construction {
-
   transform: scale(5);
   image-rendering: crisp-edges;
   image-rendering: pixelated;
@@ -29,8 +51,8 @@
 
 .bottomRight {
   position: absolute;
-  bottom: 100px;
-  right: 150px;
+  bottom: 80px;
+  right: 50px;
 }
 
 .subText {
