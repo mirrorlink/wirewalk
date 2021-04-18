@@ -38,7 +38,13 @@ function App(): any {
 
           <List disablePadding>
             <ListItem disableGutters>
+            <Box
+              width={1}
+              display="flex"
+              alignItems="center"
+              justifyContent="center">
             <img  src={bgMobile} className="imgMobile" />
+            </Box>
             </ListItem>
             <ListItem>
             <Box
