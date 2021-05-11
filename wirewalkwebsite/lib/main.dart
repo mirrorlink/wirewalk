@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wirewalkwebsite/components/footer.dart';
 import 'package:wirewalkwebsite/components/linksHeader.dart';
+import 'package:wirewalkwebsite/components/mainBody.dart';
 import 'package:wirewalkwebsite/constants.dart';
 
 void main() {
@@ -28,11 +30,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-            color: Constants.LIGHT,
+            color: Constants.DARK,
             child: Column(
               children: [
                 LinksHeader(),
-                Expanded(child: ListView(children: <Widget>[]))
+                Expanded(
+                    child: ListView(children: <Widget>[MainBody(), Footer()]))
               ],
             )));
   }

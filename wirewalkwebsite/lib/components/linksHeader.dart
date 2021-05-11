@@ -14,31 +14,50 @@ class LinksHeader extends StatefulWidget {
 }
 
 class _LinksHeaderState extends State<LinksHeader> {
+  AutoSizeGroup linksGroup = AutoSizeGroup();
+
   @override
   Widget build(BuildContext context) {
-    return Material(
-        elevation: 40,
-        child: Container(
-            padding: EdgeInsets.all(20),
+    return Stack(alignment: AlignmentDirectional.center, children: [
+      Material(
+          elevation: 40,
+          child: Container(
+            height: 80,
             color: Constants.DARK,
-            height: 100,
-            child: Row(
-              children: [
-                Expanded(flex: 10, child: mainLogo()),
-                Spacer(flex: 2),
-                Expanded(flex: 10, child: watchTrailer()),
-                Spacer(flex: 2),
-                Expanded(flex: 10, child: steam()),
-                Spacer(flex: 2),
-                Expanded(flex: 10, child: pressKit()),
-                Spacer(flex: 2),
-                Expanded(flex: 10, child: contact()),
-              ],
-            )));
+            width: MediaQuery.of(context).size.width,
+          )),
+      Container(
+          height: 80,
+          child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 1000),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(child: mainLogo()),
+                  Container(
+                    width: 20,
+                  ),
+                  Expanded(child: watchTrailer()),
+                  Expanded(child: steam()),
+                  Container(
+                    width: 10,
+                  ),
+                  Expanded(child: pressKit()),
+                  Container(
+                    width: 30,
+                  ),
+                  Expanded(child: contact()),
+                ],
+              ))),
+    ]);
   }
 
   Widget mainLogo() {
-    return SvgPicture.asset('assets/logo.svg', semanticsLabel: 'Wirewalk Logo');
+    return Container(
+        padding: EdgeInsets.only(top: 10),
+        child: SvgPicture.asset('assets/logo.svg',
+            semanticsLabel: 'Wirewalk Logo'));
   }
 
   Widget watchTrailer() {
@@ -57,6 +76,8 @@ class _LinksHeaderState extends State<LinksHeader> {
         },
         child: AutoSizeText(
           'Trailer',
+          group: linksGroup,
+          maxLines: 1,
           style: TextStyle(fontSize: 60, color: Constants.MED),
         ));
   }
@@ -72,6 +93,8 @@ class _LinksHeaderState extends State<LinksHeader> {
               onPressed: followLink,
               child: AutoSizeText(
                 'Contact',
+                group: linksGroup,
+                maxLines: 1,
                 style: TextStyle(fontSize: 60, color: Constants.MED),
               ));
         });
@@ -86,6 +109,8 @@ class _LinksHeaderState extends State<LinksHeader> {
               onPressed: followLink,
               child: AutoSizeText(
                 'Steam',
+                group: linksGroup,
+                maxLines: 1,
                 style: TextStyle(fontSize: 60, color: Constants.MED),
               ));
         });
@@ -109,6 +134,8 @@ class _LinksHeaderState extends State<LinksHeader> {
               },
               child: AutoSizeText(
                 'Press Kit',
+                maxLines: 1,
+                group: linksGroup,
                 style: TextStyle(fontSize: 60, color: Constants.MED),
               ));
         });
