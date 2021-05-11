@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wirewalk()↳',
-      theme: ThemeData(),
+      theme: ThemeData(fontFamily: 'Hollowcraft'),
       home: MyHomePage(),
     );
   }
