@@ -56,6 +56,8 @@ flutter:
   assets:
     - assets/logo.svg
     - assets/PressKit.zip
+    - assets/dani.png
+    - assets/debugchicken.png
 
   fonts:
     - family: RobotPC

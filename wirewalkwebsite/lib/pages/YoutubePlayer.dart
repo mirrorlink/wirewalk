@@ -42,7 +42,7 @@ class _YoutubePlayerState extends State<YoutubePlayer> {
       TextButton(
         child: Text(
           "Close",
-          style: TextStyle(color: Constants.MED, fontSize: 60),
+          style: TextStyle(fontSize: 60),
         ),
         onPressed: () => Navigator.pop(context),
       ),

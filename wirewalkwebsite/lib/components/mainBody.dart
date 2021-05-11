@@ -9,7 +9,7 @@ class _MainBodyState extends State<MainBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1000,
+      height: 300,
     );
   }
 }

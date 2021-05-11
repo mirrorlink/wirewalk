@@ -9,12 +9,46 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  Color getColor(Set<MaterialState> states) {
+    const Set<MaterialState> interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    if (states.any(interactiveStates.contains)) {
+      return Constants.LIGHT;
+    }
+    return Constants.MED;
+  }
+
+  EdgeInsets getPadding(Set<MaterialState> states) {
+    const Set<MaterialState> interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    if (states.any(interactiveStates.contains)) {
+      return EdgeInsets.only(bottom: 20);
+    }
+    return EdgeInsets.only(bottom: 0, right: 0);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wirewalk()↳',
-      theme: ThemeData(fontFamily: 'Hollowcraft'),
+      theme: ThemeData(
+          fontFamily: 'Hollowcraft',
+          textButtonTheme: TextButtonThemeData(
+              style: ButtonStyle(
+                  overlayColor: MaterialStateProperty.resolveWith(
+                      (state) => Colors.transparent),
+                  backgroundColor: MaterialStateProperty.resolveWith(
+                      (state) => Colors.transparent),
+                  padding: MaterialStateProperty.resolveWith(
+                      (state) => getPadding(state)),
+                  foregroundColor: MaterialStateProperty.resolveWith(
+                      (state) => getColor(state))))),
       home: MyHomePage(),
     );
   }

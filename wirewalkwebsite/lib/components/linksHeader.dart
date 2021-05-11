@@ -34,6 +34,9 @@ class _LinksHeaderState extends State<LinksHeader> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Container(
+                    width: 20,
+                  ),
                   Expanded(child: mainLogo()),
                   Container(
                     width: 20,
@@ -48,6 +51,9 @@ class _LinksHeaderState extends State<LinksHeader> {
                     width: 30,
                   ),
                   Expanded(child: contact()),
+                  Container(
+                    width: 20,
+                  ),
                 ],
               ))),
     ]);
@@ -78,7 +84,7 @@ class _LinksHeaderState extends State<LinksHeader> {
           'Trailer',
           group: linksGroup,
           maxLines: 1,
-          style: TextStyle(fontSize: 60, color: Constants.MED),
+          style: TextStyle(fontSize: 60),
         ));
   }
 
@@ -95,7 +101,7 @@ class _LinksHeaderState extends State<LinksHeader> {
                 'Contact',
                 group: linksGroup,
                 maxLines: 1,
-                style: TextStyle(fontSize: 60, color: Constants.MED),
+                style: TextStyle(fontSize: 60),
               ));
         });
   }
@@ -111,7 +117,7 @@ class _LinksHeaderState extends State<LinksHeader> {
                 'Steam',
                 group: linksGroup,
                 maxLines: 1,
-                style: TextStyle(fontSize: 60, color: Constants.MED),
+                style: TextStyle(fontSize: 60),
               ));
         });
   }
@@ -136,7 +142,7 @@ class _LinksHeaderState extends State<LinksHeader> {
                 'Press Kit',
                 maxLines: 1,
                 group: linksGroup,
-                style: TextStyle(fontSize: 60, color: Constants.MED),
+                style: TextStyle(fontSize: 60),
               ));
         });
   }
