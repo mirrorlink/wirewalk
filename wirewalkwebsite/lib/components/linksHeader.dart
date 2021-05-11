@@ -1,9 +1,11 @@
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:html' as html;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
 import 'package:wirewalkwebsite/constants.dart';
 import 'package:wirewalkwebsite/pages/youtubePlayer.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class LinksHeader extends StatefulWidget {
@@ -77,7 +79,7 @@ class _LinksHeaderState extends State<LinksHeader> {
 
   Widget steam() {
     return Link(
-        uri: Uri.parse('https://store.steampowered.com/app/391540/Undertale/'),
+        uri: Uri.parse('https://store.steampowered.com/app/391540'),
         target: LinkTarget.blank,
         builder: (BuildContext context, FollowLink followLink) {
           return TextButton(
@@ -90,12 +92,21 @@ class _LinksHeaderState extends State<LinksHeader> {
   }
 
   Widget pressKit() {
+    print(Uri.base);
+
+    Uri pressKit = Uri.base.replace(pathSegments: ['assets', 'PressKit.zip']);
+
     return Link(
-        uri: Uri.parse('https://store.steampowered.com/app/391540/Undertale/'),
+        uri: pressKit,
         target: LinkTarget.blank,
         builder: (BuildContext context, FollowLink followLink) {
           return TextButton(
-              onPressed: followLink,
+              onPressed: () {
+                html.AnchorElement anchorElement =
+                    new html.AnchorElement(href: pressKit.toString());
+                anchorElement.download = 'presskit.zip';
+                anchorElement.click();
+              },
               child: AutoSizeText(
                 'Press Kit',
                 style: TextStyle(fontSize: 60, color: Constants.MED),
