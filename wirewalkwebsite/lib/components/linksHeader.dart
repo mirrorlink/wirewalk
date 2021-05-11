@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/link.dart';
 import 'package:wirewalkwebsite/constants.dart';
 import 'package:wirewalkwebsite/pages/youtubePlayer.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class LinksHeader extends StatefulWidget {
   @override
@@ -19,10 +22,15 @@ class _LinksHeaderState extends State<LinksHeader> {
             height: 100,
             child: Row(
               children: [
-                Container(width: 200, child: mainLogo()),
-                Container(width: 50),
-                watchTrailer(),
-                Spacer(flex: 1),
+                Expanded(flex: 10, child: mainLogo()),
+                Spacer(flex: 2),
+                Expanded(flex: 10, child: watchTrailer()),
+                Spacer(flex: 2),
+                Expanded(flex: 10, child: steam()),
+                Spacer(flex: 2),
+                Expanded(flex: 10, child: pressKit()),
+                Spacer(flex: 2),
+                Expanded(flex: 10, child: contact()),
               ],
             )));
   }
@@ -45,9 +53,53 @@ class _LinksHeaderState extends State<LinksHeader> {
             },
           );
         },
-        child: Text(
+        child: AutoSizeText(
           'Trailer',
           style: TextStyle(fontSize: 60, color: Constants.MED),
         ));
+  }
+
+  Widget contact() {
+    return Link(
+        uri: Uri(
+            scheme: 'mailto',
+            path: 'debugchicken@gmail.com',
+            queryParameters: {'subject': 'Inquiry about Wirewalk!'}),
+        builder: (BuildContext context, FollowLink followLink) {
+          return TextButton(
+              onPressed: followLink,
+              child: AutoSizeText(
+                'Contact',
+                style: TextStyle(fontSize: 60, color: Constants.MED),
+              ));
+        });
+  }
+
+  Widget steam() {
+    return Link(
+        uri: Uri.parse('https://store.steampowered.com/app/391540/Undertale/'),
+        target: LinkTarget.blank,
+        builder: (BuildContext context, FollowLink followLink) {
+          return TextButton(
+              onPressed: followLink,
+              child: AutoSizeText(
+                'Steam',
+                style: TextStyle(fontSize: 60, color: Constants.MED),
+              ));
+        });
+  }
+
+  Widget pressKit() {
+    return Link(
+        uri: Uri.parse('https://store.steampowered.com/app/391540/Undertale/'),
+        target: LinkTarget.blank,
+        builder: (BuildContext context, FollowLink followLink) {
+          return TextButton(
+              onPressed: followLink,
+              child: AutoSizeText(
+                'Press Kit',
+                style: TextStyle(fontSize: 60, color: Constants.MED),
+              ));
+        });
   }
 }
