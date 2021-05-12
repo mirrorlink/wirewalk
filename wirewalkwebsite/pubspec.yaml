@@ -58,6 +58,8 @@ flutter:
     - assets/PressKit.zip
     - assets/dani.png
     - assets/debugchicken.png
+    - assets/main_char.png
+    - assets/steam.svg
 
   fonts:
     - family: RobotPC

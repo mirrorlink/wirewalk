@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
+import 'package:wirewalkwebsite/constants.dart';
 
 class Footer extends StatefulWidget {
   @override
@@ -14,6 +15,7 @@ class _FooterState extends State<Footer> {
     return Column(
       children: [
         mainLogo(),
+        wishListNow(),
         Container(
           height: 50,
         ),
@@ -21,6 +23,8 @@ class _FooterState extends State<Footer> {
         Container(
           height: 50,
         ),
+        sitedev(),
+        Container(height: 20)
       ],
     );
   }
@@ -31,12 +35,64 @@ class _FooterState extends State<Footer> {
       Expanded(
           flex: 2,
           child: Container(
-              height: 400,
+              height: 300,
               width: MediaQuery.of(context).size.width,
               child: SvgPicture.asset('assets/logo.svg',
                   semanticsLabel: 'Wirewalk Logo'))),
       Spacer(),
     ]);
+  }
+
+  Widget wishListNow() {
+    return Container(
+        height: 500,
+        child: ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 1000),
+            child: Row(mainAxisSize: MainAxisSize.min, children: [
+              Container(
+                width: 20,
+              ),
+              Expanded(flex: 4, child: wishListLink()),
+              Container(
+                width: 30,
+              ),
+              Expanded(
+                  flex: 4,
+                  child: Image.asset(
+                    'assets/main_char.png',
+                    filterQuality: FilterQuality.medium,
+                  )),
+              Container(
+                width: 20,
+              ),
+            ])));
+  }
+
+  Widget wishListLink() {
+    return Link(
+        uri: Uri.parse('https://store.steampowered.com/app/391540'),
+        target: LinkTarget.blank,
+        builder: (BuildContext context, FollowLink followLink) {
+          return ElevatedButton(
+              onPressed: followLink,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AutoSizeText(
+                      "Wishlist\nNow ON",
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontFamily: 'RobotPC', fontSize: 80),
+                    ),
+                    Container(
+                      height: 80,
+                    ),
+                    Container(
+                        child: SvgPicture.asset('assets/steam.svg',
+                            color: Constants.LIGHT,
+                            semanticsLabel: 'Steam Logo'))
+                  ]));
+        });
   }
 
   Widget credits() {
@@ -82,6 +138,16 @@ class _FooterState extends State<Footer> {
                   onPressed: followLink,
                 );
               }))
+    ]);
+  }
+
+  Widget sitedev() {
+    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+      SelectableText(
+        '<2017-2022> debugChicken - contact: debugchicken@gmail.com',
+        style: TextStyle(
+            color: Constants.LIGHT, fontFamily: 'Monogram', fontSize: 22),
+      ),
     ]);
   }
 }

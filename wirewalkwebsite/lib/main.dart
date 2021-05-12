@@ -48,7 +48,15 @@ class MyApp extends StatelessWidget {
                   padding: MaterialStateProperty.resolveWith(
                       (state) => getPadding(state)),
                   foregroundColor: MaterialStateProperty.resolveWith(
-                      (state) => getColor(state))))),
+                      (state) => getColor(state)))),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ButtonStyle(
+                  overlayColor: MaterialStateProperty.resolveWith(
+                      (state) => Colors.transparent),
+                  elevation: MaterialStateProperty.resolveWith((state) => 0),
+                  backgroundColor:
+                      MaterialStateProperty.resolveWith((state) => Colors.transparent),
+                  foregroundColor: MaterialStateProperty.resolveWith((state) => Constants.LIGHT)))),
       home: MyHomePage(),
     );
   }
