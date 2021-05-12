@@ -30,17 +30,24 @@ class _FooterState extends State<Footer> {
   }
 
   Widget mainLogo() {
-    return Row(children: [
-      Spacer(),
-      Expanded(
-          flex: 2,
-          child: Container(
-              height: 300,
-              width: MediaQuery.of(context).size.width,
-              child: SvgPicture.asset('assets/logo.svg',
-                  semanticsLabel: 'Wirewalk Logo'))),
-      Spacer(),
-    ]);
+    return Container(
+        height: 200,
+        child: ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 700),
+            child: Row(mainAxisSize: MainAxisSize.min, children: [
+              Container(
+                width: 20,
+              ),
+              Expanded(
+                  child: Container(
+                      height: 200,
+                      width: 700,
+                      child: SvgPicture.asset('assets/logo.svg',
+                          semanticsLabel: 'Wirewalk Logo'))),
+              Container(
+                width: 20,
+              ),
+            ])));
   }
 
   Widget wishListNow() {
