@@ -1,6 +1,4 @@
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
-
+import 'package:universal_html/html.dart' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
@@ -108,7 +106,7 @@ class _LinksHeaderState extends State<LinksHeader> {
 
   Widget steam() {
     return Link(
-        uri: Uri.parse('https://store.steampowered.com/app/369211'),
+        uri: Uri.parse('https://store.steampowered.com/app/1636700'),
         target: LinkTarget.blank,
         builder: (BuildContext context, FollowLink followLink) {
           return TextButton(

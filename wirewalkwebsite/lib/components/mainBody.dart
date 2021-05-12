@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:wirewalkwebsite/components/bar.dart';
+import 'package:wirewalkwebsite/constants.dart';
 
 class MainBody extends StatefulWidget {
   final ScrollController scr;
@@ -28,7 +29,7 @@ class _MainBodyState extends State<MainBody> {
   }
 
   void updatedScroll() {
-    bool bVisible = widget.scr.offset < 500;
+    bool bVisible = widget.scr.offset < Constants.BAR_SCROLL;
 
     if (barVisible != bVisible) {
       setState(() {
