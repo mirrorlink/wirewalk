@@ -54,12 +54,12 @@ class _FooterState extends State<Footer> {
     return Container(
         height: 500,
         child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 1000),
+            constraints: BoxConstraints(maxWidth: 1200),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
               Container(
                 width: 20,
               ),
-              Expanded(flex: 4, child: wishListLink()),
+              Expanded(flex: 7, child: wishListLink()),
               Container(
                 width: 30,
               ),
@@ -86,13 +86,13 @@ class _FooterState extends State<Footer> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AutoSizeText(
-                      "Wishlist\nNow ON",
+                      "Wishlist\nNow !",
                       maxLines: 2,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'RobotPC', fontSize: 80),
+                      style: TextStyle(fontFamily: 'RobotPC', fontSize: 100),
                     ),
                     Container(
-                      height: 80,
+                      height: 50,
                     ),
                     Container(
                         child: SvgPicture.asset('assets/steam.svg',
