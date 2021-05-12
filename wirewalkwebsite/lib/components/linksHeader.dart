@@ -108,7 +108,7 @@ class _LinksHeaderState extends State<LinksHeader> {
 
   Widget steam() {
     return Link(
-        uri: Uri.parse('https://store.steampowered.com/app/391540'),
+        uri: Uri.parse('https://store.steampowered.com/app/369211'),
         target: LinkTarget.blank,
         builder: (BuildContext context, FollowLink followLink) {
           return TextButton(

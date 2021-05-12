@@ -68,6 +68,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  ScrollController scr = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 LinksHeader(),
                 Expanded(
-                    child: ListView(children: <Widget>[MainBody(), Footer()]))
+                    child: ListView(
+                        controller: scr,
+                        children: <Widget>[MainBody(scr: scr), Footer()]))
               ],
             )));
   }
