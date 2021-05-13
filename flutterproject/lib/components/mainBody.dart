@@ -50,7 +50,7 @@ class _MainBodyState extends State<MainBody> {
         Container(
           height: 50,
         ),
-        Stack(children: [
+        /*Stack(children: [
           Positioned(
               top: 0,
               child: Opacity(
@@ -61,13 +61,14 @@ class _MainBodyState extends State<MainBody> {
                   ))),
           Positioned(
               top: 0,
-              child: Opacity(
-                  opacity: barVisible ? 1 : 0,
-                  child: Bar(
-                    scaleFactor: scaleFactor,
-                    scr: widget.scr,
-                  ))),
-        ]),
+              child: */
+        Opacity(
+            opacity: barVisible ? 1 : 0,
+            child: Bar(
+              scaleFactor: scaleFactor,
+              scr: widget.scr,
+            )), //),
+        //]),
         Container(
           height: 100,
         )

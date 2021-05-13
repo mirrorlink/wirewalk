@@ -6,4 +6,5 @@ class Constants {
   static const Color DARK = Color(0xFF211c12);
 
   static const int BAR_SCROLL = 400;
+  static const int CITY_SCROLL = 1200;
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wirewalkwebsite/components/barChar.dart';
+import 'package:wirewalkwebsite/components/cityChar.dart';
 import 'package:wirewalkwebsite/components/simpleAnim.dart';
 
 class City extends StatefulWidget {
@@ -22,9 +22,7 @@ class _CityState extends State<City> {
         child: Stack(
           children: [
             bg(),
-            glauber(),
-            tv(),
-            BarChar(
+            CityChar(
               scale: widget.scaleFactor,
               scr: widget.scr,
             )
@@ -33,25 +31,7 @@ class _CityState extends State<City> {
   }
 
   Widget bg() {
-    return Image.asset('assets/minigame/website_bar.png',
+    return Image.asset('assets/minigame/website_outside.png',
         scale: (1 / widget.scaleFactor), filterQuality: FilterQuality.none);
-  }
-
-  Widget glauber() {
-    return SimpleAnim(
-        x: 15,
-        y: 30,
-        timeEachFrameMs: 750,
-        imageIds: [3, 4],
-        scale: widget.scaleFactor);
-  }
-
-  Widget tv() {
-    return SimpleAnim(
-        x: 125,
-        y: 10,
-        timeEachFrameMs: 50,
-        imageIds: [22, 27, 24, 27, 25, 26, 23, 26],
-        scale: widget.scaleFactor);
   }
 }
