@@ -48,27 +48,22 @@ class _MainBodyState extends State<MainBody> {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       Column(children: [
         Container(
-          height: 50,
+          height: 100,
         ),
-        /*Stack(children: [
-          Positioned(
-              top: 0,
-              child: Opacity(
-                  opacity: barVisible ? 1 : 0,
-                  child: City(
-                    scaleFactor: scaleFactor,
-                    scr: widget.scr,
-                  ))),
-          Positioned(
-              top: 0,
-              child: */
-        Opacity(
-            opacity: barVisible ? 1 : 0,
-            child: Bar(
-              scaleFactor: scaleFactor,
-              scr: widget.scr,
-            )), //),
-        //]),
+        Stack(children: [
+          Opacity(
+              opacity: barVisible ? 0 : 1,
+              child: City(
+                scaleFactor: scaleFactor,
+                scr: widget.scr,
+              )),
+          Opacity(
+              opacity: barVisible ? 1 : 0,
+              child: Bar(
+                scaleFactor: scaleFactor,
+                scr: widget.scr,
+              )),
+        ]),
         Container(
           height: 100,
         )

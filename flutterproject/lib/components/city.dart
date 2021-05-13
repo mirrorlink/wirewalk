@@ -16,18 +16,21 @@ class City extends StatefulWidget {
 class _CityState extends State<City> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: (150 * widget.scaleFactor).roundToDouble(),
-        height: (120 * widget.scaleFactor).roundToDouble(),
-        child: Stack(
-          children: [
-            bg(),
-            CityChar(
-              scale: widget.scaleFactor,
-              scr: widget.scr,
-            )
-          ],
-        ));
+    return Column(children: [
+      Container(height: (80 * widget.scaleFactor.roundToDouble())),
+      Container(
+          width: (150 * widget.scaleFactor).roundToDouble(),
+          height: (480 * widget.scaleFactor).roundToDouble(),
+          child: Stack(
+            children: [
+              bg(),
+              CityChar(
+                scale: widget.scaleFactor,
+                scr: widget.scr,
+              )
+            ],
+          ))
+    ]);
   }
 
   Widget bg() {

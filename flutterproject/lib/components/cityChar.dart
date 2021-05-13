@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:wirewalkwebsite/components/simpleAnim.dart';
 import 'package:wirewalkwebsite/constants.dart';
@@ -35,21 +37,25 @@ class _CityCharState extends State<CityChar> {
 
   @override
   Widget build(BuildContext context) {
-    if (scrollPosition >= 1200) {
+    double desloc = (min(scrollPosition, 1800) - Constants.BAR_SCROLL) /
+        (Constants.CITY_SCROLL - Constants.BAR_SCROLL) *
+        152;
+
+    if (scrollPosition < (Constants.BAR_SCROLL + 90)) {
+      return Container();
+    }
+
+    if (scrollPosition >= 1800) {
       return Positioned(
-          left: (67 * widget.scale).roundToDouble(),
-          top: (500 * widget.scale).roundToDouble(),
+          left: (60 * widget.scale).roundToDouble(),
+          top: ((60 + desloc.toInt()) * widget.scale).roundToDouble(),
           child: Image.asset('assets/minigame/images/websitesprites_17.png',
               scale: (1 / widget.scale), filterQuality: FilterQuality.none));
     }
 
-    double desloc = (scrollPosition - Constants.BAR_SCROLL) /
-        (Constants.CITY_SCROLL - Constants.BAR_SCROLL) *
-        300;
-
     return SimpleAnim(
-        x: 67,
-        y: 150 + desloc.toInt(),
+        x: 60,
+        y: 60 + desloc.toInt(),
         timeEachFrameMs: 100,
         imageIds: [13, 15, 13, 15, 17, 17, 14, 16, 14, 16, 17, 17],
         scale: widget.scale);
