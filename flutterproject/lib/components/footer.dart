@@ -15,6 +15,9 @@ class _FooterState extends State<Footer> {
     return Column(
       children: [
         mainLogo(),
+        Container(
+          height: 100,
+        ),
         wishListNow(),
         Container(
           height: 50,
@@ -33,7 +36,7 @@ class _FooterState extends State<Footer> {
     return Container(
         height: 200,
         child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 700),
+            constraints: BoxConstraints(maxWidth: 800),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
               Container(
                 width: 20,
@@ -41,7 +44,7 @@ class _FooterState extends State<Footer> {
               Expanded(
                   child: Container(
                       height: 200,
-                      width: 700,
+                      width: 800,
                       child: SvgPicture.asset('assets/logo.svg',
                           semanticsLabel: 'Wirewalk Logo'))),
               Container(
@@ -59,7 +62,7 @@ class _FooterState extends State<Footer> {
               Container(
                 width: 20,
               ),
-              Expanded(flex: 7, child: wishListLink()),
+              Expanded(flex: 4, child: wishListLink()),
               Container(
                 width: 30,
               ),
@@ -86,10 +89,10 @@ class _FooterState extends State<Footer> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     AutoSizeText(
-                      "Wishlist\nNow !",
+                      "Wishlist\nON",
                       maxLines: 2,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontFamily: 'RobotPC', fontSize: 100),
+                      style: TextStyle(fontFamily: 'RobotPC', fontSize: 60),
                     ),
                     Container(
                       height: 50,
@@ -150,11 +153,23 @@ class _FooterState extends State<Footer> {
 
   Widget sitedev() {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      SelectableText(
-        '<2017-2022> debugChicken - contact: debugchicken@gmail.com',
-        style: TextStyle(
-            color: Constants.LIGHT, fontFamily: 'Monogram', fontSize: 22),
-      ),
+      Constants.isTouchScreen()
+          ? Expanded(
+              child: AutoSizeText(
+              siteString(),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Constants.LIGHT, fontFamily: 'Monogram', fontSize: 22),
+            ))
+          : SelectableText(
+              siteString(),
+              style: TextStyle(
+                  color: Constants.LIGHT, fontFamily: 'Monogram', fontSize: 22),
+            ),
     ]);
+  }
+
+  String siteString() {
+    return "<2017-2022> debugChicken - contact: debugchicken@gmail.com";
   }
 }

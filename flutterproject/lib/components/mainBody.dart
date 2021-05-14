@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:wirewalkwebsite/components/bar.dart';
+import 'package:wirewalkwebsite/components/room.dart';
 import 'package:wirewalkwebsite/components/city.dart';
+import 'package:wirewalkwebsite/components/descriptiveText.dart';
 import 'package:wirewalkwebsite/constants.dart';
 
 class MainBody extends StatefulWidget {
@@ -14,12 +16,23 @@ class MainBody extends StatefulWidget {
   _MainBodyState createState() => _MainBodyState();
 }
 
+enum partsVisible { BAR, CITY, TEXT_AND_ROOM }
+
 class _MainBodyState extends State<MainBody> {
-  bool barVisible = true;
+  partsVisible pVisi = partsVisible.BAR;
+
+  double textOpacity = 0;
+  int scaleFactor = Constants.MAX_SCALE;
 
   @override
   void initState() {
     super.initState();
+
+    /*for (int i = 1; i < 33; i++) {
+      precacheImage(
+          AssetImage('assets/minigame/images/websitesprites_$i.png'), context);
+    }*/
+
     widget.scr.addListener(updatedScroll);
   }
 
@@ -30,20 +43,30 @@ class _MainBodyState extends State<MainBody> {
   }
 
   void updatedScroll() {
-    bool bVisible = widget.scr.offset < Constants.BAR_SCROLL;
+    partsVisible nPVisi;
 
-    if (barVisible != bVisible) {
+    double adjustedOffset =
+        Constants.adjustOffset(widget.scr.offset, scaleFactor);
+
+    if (adjustedOffset < Constants.BAR_SCROLL) {
+      nPVisi = partsVisible.BAR;
+    } else if (adjustedOffset < Constants.CITY_SCROLL_FULL) {
+      nPVisi = partsVisible.CITY;
+    } else {
+      nPVisi = partsVisible.TEXT_AND_ROOM;
+    }
+
+    if (pVisi != nPVisi) {
       setState(() {
-        barVisible = bVisible;
+        pVisi = nPVisi;
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    int scaleFactor = (MediaQuery.of(context).size.width / 150).floor();
-
-    scaleFactor = min(scaleFactor, 5);
+    scaleFactor = (MediaQuery.of(context).size.width / 150).floor();
+    scaleFactor = min(scaleFactor, Constants.MAX_SCALE);
 
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       Column(children: [
@@ -52,21 +75,32 @@ class _MainBodyState extends State<MainBody> {
         ),
         Stack(children: [
           Opacity(
-              opacity: barVisible ? 0 : 1,
+              opacity: pVisi == partsVisible.CITY ? 1 : 0,
               child: City(
                 scaleFactor: scaleFactor,
                 scr: widget.scr,
               )),
           Opacity(
-              opacity: barVisible ? 1 : 0,
+              opacity: pVisi == partsVisible.BAR ? 1 : 0,
               child: Bar(
                 scaleFactor: scaleFactor,
                 scr: widget.scr,
               )),
         ]),
-        Container(
-          height: 100,
-        )
+        Opacity(
+          opacity: (pVisi == partsVisible.TEXT_AND_ROOM) ? 1 : 0,
+          child: DescriptiveText(
+            scaleFactor: scaleFactor,
+            scr: widget.scr,
+          ),
+        ),
+        Container(height: 50),
+        Opacity(
+            opacity: pVisi == partsVisible.TEXT_AND_ROOM ? 1 : 0,
+            child: Room(
+              scaleFactor: scaleFactor,
+            )),
+        Container(height: 80),
       ])
     ]);
   }

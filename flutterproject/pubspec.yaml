@@ -64,6 +64,7 @@ flutter:
     - assets/debugchicken.png
     - assets/main_char.png
     - assets/steam.svg
+    - assets/ogimage.png
 
     - assets/minigame/website_bar.png
     - assets/minigame/website_outside.png

@@ -26,9 +26,14 @@ class _SimpleAnimState extends State<SimpleAnim> {
   Timer t;
   int currFrame = 0;
 
+  List<Image> images = [];
+
   @override
   void initState() {
     super.initState();
+
+    loadImages();
+
     t = Timer.periodic(Duration(milliseconds: widget.timeEachFrameMs),
         (Timer t) {
       currFrame++;
@@ -42,6 +47,28 @@ class _SimpleAnimState extends State<SimpleAnim> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    loadImages();
+
+    for (int i = 0; i < widget.imageIds.length; i++) {
+      precacheImage(images[i].image, context);
+    }
+  }
+
+  void loadImages() {
+    images = [];
+
+    for (int i = 0; i < widget.imageIds.length; i++) {
+      images.add(Image.asset(
+          'assets/minigame/images/websitesprites_${getCurrId(i)}.png',
+          scale: (1 / widget.scale),
+          filterQuality: FilterQuality.none));
+    }
+  }
+
+  @override
   void dispose() {
     super.dispose();
     t.cancel();
@@ -52,14 +79,11 @@ class _SimpleAnimState extends State<SimpleAnim> {
     return Positioned(
         left: (widget.x * widget.scale).roundToDouble(),
         top: (widget.y * widget.scale).roundToDouble(),
-        child: Image.asset(
-            'assets/minigame/images/websitesprites_${getCurrId()}.png',
-            scale: (1 / widget.scale),
-            filterQuality: FilterQuality.none));
+        child: images[currFrame]);
   }
 
-  String getCurrId() {
-    int id = widget.imageIds[currFrame];
+  String getCurrId(int i) {
+    int id = widget.imageIds[i];
     return (id < 10 ? '0' : '') + id.toString();
   }
 }

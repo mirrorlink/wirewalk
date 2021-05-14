@@ -31,21 +31,22 @@ class _CityCharState extends State<CityChar> {
 
   void updatedScroll() {
     setState(() {
-      scrollPosition = widget.scr.offset;
+      scrollPosition = Constants.adjustOffset(widget.scr.offset, widget.scale);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    double desloc = (min(scrollPosition, 1800) - Constants.BAR_SCROLL) /
-        (Constants.CITY_SCROLL - Constants.BAR_SCROLL) *
-        152;
+    double desloc =
+        (min(scrollPosition, Constants.CITY_CHARWALK) - Constants.BAR_SCROLL) /
+            (Constants.CITY_SCROLL - Constants.BAR_SCROLL) *
+            152;
 
     if (scrollPosition < (Constants.BAR_SCROLL + 90)) {
       return Container();
     }
 
-    if (scrollPosition >= 1800) {
+    if (scrollPosition >= Constants.CITY_CHARWALK) {
       return Positioned(
           left: (60 * widget.scale).roundToDouble(),
           top: ((60 + desloc.toInt()) * widget.scale).roundToDouble(),

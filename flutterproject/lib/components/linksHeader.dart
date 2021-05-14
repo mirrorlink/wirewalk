@@ -137,7 +137,7 @@ class _LinksHeaderState extends State<LinksHeader> {
                 anchorElement.click();
               },
               child: AutoSizeText(
-                'Press Kit',
+                'PressKit',
                 maxLines: 1,
                 group: linksGroup,
                 style: TextStyle(fontSize: 60),

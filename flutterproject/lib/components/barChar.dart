@@ -29,7 +29,7 @@ class _BarCharState extends State<BarChar> {
 
   void updatedScroll() {
     setState(() {
-      scrollPosition = widget.scr.offset;
+      scrollPosition = Constants.adjustOffset(widget.scr.offset, widget.scale);
     });
   }
 
