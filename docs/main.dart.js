@@ -61659,7 +61659,7 @@ a1U:function(){var s=null
 return new D.kk(new R.a5k(this),P.acc(s,"debugchicken@gmail.com",s,s,P.aC(["subject","Inquiry about Wirewalk!"],t.bD,t.z),"mailto",s),C.qg,s)},
 Nd:function(){return new D.kk(new R.a5n(this),P.kR(u.v,0,null),C.fd,null)},
 a6h:function(){P.rv(P.ah4())
-var s=P.ah4().L4(0,H.c(["assets","PressKit.zip"],t.i))
+var s=P.ah4().L4(0,H.c(["assets","assets","PressKit.zip"],t.i))
 return new D.kk(new R.a5m(this,s),s,C.fd,null)}}
 R.a5p.prototype={
 $0:function(){var s,r,q,p,o,n,m,l,k,j=null,i=this.a.c

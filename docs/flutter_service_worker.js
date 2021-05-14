@@ -6,7 +6,7 @@ const RESOURCES = {
   "assets/AssetManifest.json": "cfb3127b219f5075b67a846697e93c42",
 "assets/assets/dani.png": "a19b024b1af00c73e08dff6f757e520d",
 "assets/assets/debugchicken.png": "18b28b20deeff9f29625bb06bd75e756",
-"assets/assets/logo.svg": "f6cdf6dae0a6f51352fa7c69bf52188c",
+"assets/assets/logo.svg": "021d4f0b0beabb24547c2c559f578334",
 "assets/assets/main_char.png": "c5ad3f6fdcae3fb722b9863f9cc4287e",
 "assets/assets/minigame/images/websitesprites_01.png": "bdd8e5c63881ea73465aede91444ff8d",
 "assets/assets/minigame/images/websitesprites_02.png": "2a03a7d814cd47d60bcfa394c70fb419",
@@ -59,9 +59,9 @@ const RESOURCES = {
 "favicon.png": "e743ca1035ae5d03bdad11dd5da8a752",
 "icons/Icon-192.png": "7b06dcb95b8d1352cd365e410f2bd9ed",
 "icons/Icon-512.png": "67ed839fd150b5fb0ca705494ef29a24",
-"index.html": "0ffe09447f79604f9135358d133e4a01",
-"/": "0ffe09447f79604f9135358d133e4a01",
-"main.dart.js": "b253888dea3a36511a826f5158e9186c",
+"index.html": "c5ed3eb8642b816a34a5386bb77eb1dd",
+"/": "c5ed3eb8642b816a34a5386bb77eb1dd",
+"main.dart.js": "abc4b6e811fee08e83fb65067f6db814",
 "manifest.json": "13457257ad2ea9079366ac6be9167bc5",
 "version.json": "494ba1fbbbdc56d8d64a1be4199896dc"
 };

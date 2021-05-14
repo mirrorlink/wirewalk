@@ -123,7 +123,8 @@ class _LinksHeaderState extends State<LinksHeader> {
   Widget pressKit() {
     print(Uri.base);
 
-    Uri pressKit = Uri.base.replace(pathSegments: ['assets', 'PressKit.zip']);
+    Uri pressKit =
+        Uri.base.replace(pathSegments: ['assets', 'assets', 'PressKit.zip']);
 
     return Link(
         uri: pressKit,
