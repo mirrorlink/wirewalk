@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:wirewalkwebsite/components/bar.dart';
+import 'package:wirewalkwebsite/components/footer.dart';
 import 'package:wirewalkwebsite/components/room.dart';
 import 'package:wirewalkwebsite/components/city.dart';
 import 'package:wirewalkwebsite/components/descriptiveText.dart';
@@ -27,12 +28,6 @@ class _MainBodyState extends State<MainBody> {
   @override
   void initState() {
     super.initState();
-
-    /*for (int i = 1; i < 33; i++) {
-      precacheImage(
-          AssetImage('assets/minigame/images/websitesprites_$i.png'), context);
-    }*/
-
     widget.scr.addListener(updatedScroll);
   }
 
@@ -101,6 +96,7 @@ class _MainBodyState extends State<MainBody> {
               scaleFactor: scaleFactor,
             )),
         Container(height: 80),
+        Footer()
       ])
     ]);
   }

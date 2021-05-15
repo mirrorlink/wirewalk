@@ -12,24 +12,26 @@ class Footer extends StatefulWidget {
 class _FooterState extends State<Footer> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        mainLogo(),
-        Container(
-          height: 100,
-        ),
-        wishListNow(),
-        Container(
-          height: 50,
-        ),
-        credits(),
-        Container(
-          height: 50,
-        ),
-        sitedev(),
-        Container(height: 20)
-      ],
-    );
+    return Container(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: [
+            mainLogo(),
+            Container(
+              height: 100,
+            ),
+            wishListNow(),
+            Container(
+              height: 50,
+            ),
+            credits(),
+            Container(
+              height: 50,
+            ),
+            sitedev(),
+            Container(height: 20)
+          ],
+        ));
   }
 
   Widget mainLogo() {

@@ -34,12 +34,30 @@ class MyApp extends StatelessWidget {
     return EdgeInsets.only(bottom: 0, right: 0);
   }
 
+  Color getScrollColor(Set<MaterialState> states) {
+    const Set<MaterialState> interactiveStates = <MaterialState>{
+      MaterialState.pressed,
+      MaterialState.hovered,
+      MaterialState.focused,
+    };
+    if (states.any(interactiveStates.contains)) {
+      return Constants.MED;
+    }
+    return Constants.LIGHT;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wirewalk()↳',
       theme: ThemeData(
           fontFamily: 'Hollowcraft',
+          scrollbarTheme: ScrollbarThemeData().copyWith(
+            thumbColor: MaterialStateProperty.resolveWith(
+                (state) => getScrollColor(state)),
+            trackColor: MaterialStateProperty.all(Constants.LIGHT),
+            trackBorderColor: MaterialStateProperty.all(Constants.LIGHT),
+          ),
           textButtonTheme: TextButtonThemeData(
               style: ButtonStyle(
                   overlayColor: MaterialStateProperty.resolveWith(
@@ -55,9 +73,10 @@ class MyApp extends StatelessWidget {
                   overlayColor: MaterialStateProperty.resolveWith(
                       (state) => Colors.transparent),
                   elevation: MaterialStateProperty.resolveWith((state) => 0),
-                  backgroundColor:
-                      MaterialStateProperty.resolveWith((state) => Colors.transparent),
-                  foregroundColor: MaterialStateProperty.resolveWith((state) => Constants.LIGHT)))),
+                  backgroundColor: MaterialStateProperty.resolveWith(
+                      (state) => Colors.transparent),
+                  foregroundColor: MaterialStateProperty.resolveWith(
+                      (state) => Constants.LIGHT)))),
       home: MyHomePage(),
     );
   }
@@ -85,13 +104,16 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 LinksHeader(),
                 Expanded(
-                    child: ListView(
-                        physics: NeverScrollableScrollPhysics(),
+                    child: Scrollbar(
+                        isAlwaysShown: true,
                         controller: scr,
-                        children: <Widget>[
-                      MainBody(scr: scr),
-                      Footer()
-                    ]))
+                        radius: Radius.zero,
+                        thickness: 14,
+                        child: SingleChildScrollView(
+                          physics: NeverScrollableScrollPhysics(),
+                          controller: scr,
+                          child: MainBody(scr: scr),
+                        )))
               ],
             )));
   }
@@ -103,9 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             LinksHeader(),
             Expanded(
-                child: ListView(
-                    controller: scr,
-                    children: <Widget>[MainBody(scr: scr), Footer()]))
+                child: SingleChildScrollView(
+                    controller: scr, child: MainBody(scr: scr)))
           ],
         ));
   }
