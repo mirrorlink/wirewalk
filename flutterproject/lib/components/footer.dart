@@ -1,8 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:universal_html/html.dart';
 import 'package:url_launcher/link.dart';
 import 'package:wirewalkwebsite/constants.dart';
+import 'dart:ui' as ui;
 
 class Footer extends StatefulWidget {
   @override
@@ -10,6 +12,23 @@ class Footer extends StatefulWidget {
 }
 
 class _FooterState extends State<Footer> {
+  final IFrameElement _steamFrame = IFrameElement();
+
+  @override
+  void initState() {
+    super.initState();
+    _steamFrame.width = '646';
+    _steamFrame.height = '190';
+    _steamFrame.src = 'https://store.steampowered.com/widget/1636700/';
+    _steamFrame.style.border = 'none';
+
+    // ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+      'steamFrame',
+      (int viewId) => _steamFrame,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,11 +37,12 @@ class _FooterState extends State<Footer> {
           children: [
             mainLogo(),
             Container(
-              height: 100,
+              height: 80,
             ),
-            wishListNow(),
+            steamWidget(),
+            //wishListNow(),
             Container(
-              height: 50,
+              height: 80,
             ),
             credits(),
             Container(
@@ -53,6 +73,16 @@ class _FooterState extends State<Footer> {
                 width: 20,
               ),
             ])));
+  }
+
+  Widget steamWidget() {
+    return SizedBox(
+        height: 190,
+        width: 646,
+        child: HtmlElementView(
+          key: UniqueKey(),
+          viewType: 'steamFrame',
+        ));
   }
 
   Widget wishListNow() {
