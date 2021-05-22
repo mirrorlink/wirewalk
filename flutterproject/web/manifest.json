@@ -1,11 +1,11 @@
 {
-    "name": "wirewalkwebsite",
-    "short_name": "wirewalkwebsite",
+    "name": "Wirewalk()↳ Website",
+    "short_name": "Wirewalk()↳",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#211C12",
+    "theme_color": "#d65168",
+    "description": "Wirewalk()↳ is an adventure where you raid virus-riddled systems for the lols. In the not so distant future, with the advancement of virtual reality and the internet of things, a powerful computer virus capable of infecting any digital system is causing chaos throughout the city. Control Rada, a regular programmer who loves baseball, roller skating and going to the bar. Uninvited, she builds a software called The Wirewalker, capable of hacking any infected digital device at the Wired.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
