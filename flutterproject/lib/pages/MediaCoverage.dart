@@ -58,10 +58,7 @@ class _MediaCoverageState extends State<MediaCoverage> {
           Language.br),
       SingleMediaCoverage(
           'https://www.5mgsite.com/post/wirewalk-a-futuristic-themed-zelda-game-where-you-have-to-face-a-computer-virus',
-          Language.en),
-      SingleMediaCoverage(
-          'http://kopodo.com/2021/aman-lo-retro-entonces-no-se-pierdan-el-video-de-wirewalk%E2%86%B3-una-aventura-indie-para-steam/',
-          Language.es)
+          Language.en)
     ];
   }
 
@@ -82,6 +79,7 @@ class _MediaCoverageState extends State<MediaCoverage> {
     var response = await http.get(Uri.parse(smc.url), headers: {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE, HEAD",
+      "Access-Control-Allow-Headers": "Content-Type"
     });
 
     return MetadataParser.parse(MetadataFetch.responseToDocument(response));
