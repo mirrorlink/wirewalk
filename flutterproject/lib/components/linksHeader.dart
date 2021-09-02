@@ -10,6 +10,10 @@ import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 
 class LinksHeader extends StatefulWidget {
+  final Function showModal;
+
+  LinksHeader(this.showModal);
+
   @override
   _LinksHeaderState createState() => _LinksHeaderState();
 }
@@ -139,17 +143,23 @@ class _LinksHeaderState extends State<LinksHeader> {
 
   Widget watchTrailer() {
     return TextButton(
-        onPressed: () {
-          showGeneralDialog(
+        onPressed: () async {
+          widget.showModal(true);
+
+          await showGeneralDialog(
             context: context,
             barrierColor: Colors.black12.withOpacity(0.6),
             barrierDismissible: true,
             barrierLabel: "trailer",
-            transitionDuration: Duration(milliseconds: 400),
+            transitionDuration: Duration(milliseconds: 200),
             pageBuilder: (_, __, ___) {
               return SizedBox.expand(child: YoutubePlayer());
             },
           );
+
+          await Future.delayed(Duration(milliseconds: 500));
+
+          widget.showModal(false);
         },
         child: AutoSizeText(
           'Trailer',
@@ -162,15 +172,17 @@ class _LinksHeaderState extends State<LinksHeader> {
   Widget onMedia() {
     return TextButton(
         onPressed: () async {
+          widget.showModal(true);
+
           Map<String, dynamic> loadfile =
               await parseJsonFromAssets('assets/websites.json');
 
-          showGeneralDialog(
+          await showGeneralDialog(
             context: context,
             barrierColor: Colors.black12.withOpacity(0.6),
             barrierDismissible: true,
             barrierLabel: "media",
-            transitionDuration: Duration(milliseconds: 400),
+            transitionDuration: Duration(milliseconds: 200),
             pageBuilder: (_, __, ___) {
               if (Constants.isTouchScreen()) {
                 return Container(
@@ -205,6 +217,10 @@ class _LinksHeaderState extends State<LinksHeader> {
                   child: mediaCenter(loadfile));
             },
           );
+
+          await Future.delayed(Duration(milliseconds: 500));
+
+          widget.showModal(false);
         },
         child: AutoSizeText(
           'Media',

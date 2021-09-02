@@ -89,9 +89,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   ScrollController scr = ScrollController();
 
+  bool showingModal = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Constants.isTouchScreen() ? mobileBody() : webBody());
+  }
+
+  void showModal(bool show) {
+    setState(() {
+      showingModal = show;
+    });
   }
 
   Widget webBody() {
@@ -101,18 +109,20 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Constants.DARK,
             child: Column(
               children: [
-                LinksHeader(),
-                Expanded(
-                    child: Scrollbar(
-                        isAlwaysShown: true,
-                        controller: scr,
-                        radius: Radius.zero,
-                        thickness: 14,
-                        child: SingleChildScrollView(
-                          physics: NeverScrollableScrollPhysics(),
-                          controller: scr,
-                          child: MainBody(scr: scr),
-                        )))
+                LinksHeader(showModal),
+                showingModal
+                    ? Container()
+                    : Expanded(
+                        child: Scrollbar(
+                            isAlwaysShown: true,
+                            controller: scr,
+                            radius: Radius.zero,
+                            thickness: 14,
+                            child: SingleChildScrollView(
+                              physics: NeverScrollableScrollPhysics(),
+                              controller: scr,
+                              child: MainBody(scr: scr),
+                            )))
               ],
             )));
   }
@@ -122,10 +132,12 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Constants.DARK,
         child: Column(
           children: [
-            LinksHeader(),
-            Expanded(
-                child: SingleChildScrollView(
-                    controller: scr, child: MainBody(scr: scr)))
+            LinksHeader(showModal),
+            showingModal
+                ? Container()
+                : Expanded(
+                    child: SingleChildScrollView(
+                        controller: scr, child: MainBody(scr: scr)))
           ],
         ));
   }
