@@ -6,6 +6,8 @@ import 'package:wirewalkwebsite/constants.dart';
 import 'package:wirewalkwebsite/pages/MediaCoverage.dart';
 import 'package:wirewalkwebsite/pages/youtubePlayer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
 
 class LinksHeader extends StatefulWidget {
   @override
@@ -15,6 +17,12 @@ class LinksHeader extends StatefulWidget {
 class _LinksHeaderState extends State<LinksHeader> {
   AutoSizeGroup linksGroup = AutoSizeGroup();
   AutoSizeGroup linksGroup2 = AutoSizeGroup();
+
+  Future<Map<String, dynamic>> parseJsonFromAssets(String assetsPath) async {
+    return rootBundle
+        .loadString(assetsPath)
+        .then((jsonStr) => jsonDecode(jsonStr));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -153,7 +161,10 @@ class _LinksHeaderState extends State<LinksHeader> {
 
   Widget onMedia() {
     return TextButton(
-        onPressed: () {
+        onPressed: () async {
+          Map<String, dynamic> loadfile =
+              await parseJsonFromAssets('assets/websites.json');
+
           showGeneralDialog(
             context: context,
             barrierColor: Colors.black12.withOpacity(0.6),
@@ -171,7 +182,8 @@ class _LinksHeaderState extends State<LinksHeader> {
                   child: Column(children: [
                     Expanded(
                         child: Container(
-                            color: Colors.white38, child: MediaCoverage())),
+                            color: Colors.white38,
+                            child: MediaCoverage(loadfile))),
                     Container(
                       height: 50,
                     ),
