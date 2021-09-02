@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:metadata_fetch/metadata_fetch.dart';
 import 'package:wirewalkwebsite/constants.dart';
 import 'package:url_launcher/link.dart';
+import 'package:http/http.dart' as http;
 
 enum Language { br, en, es }
 
@@ -77,9 +78,18 @@ class _MediaCoverageState extends State<MediaCoverage> {
         package: 'country_icons');
   }
 
+  Future<Metadata> manualFetch(SingleMediaCoverage smc) async {
+    var response = await http.get(Uri.parse(smc.url), headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE, HEAD",
+    });
+
+    return MetadataParser.parse(MetadataFetch.responseToDocument(response));
+  }
+
   Widget card(SingleMediaCoverage smc) {
     return FutureBuilder<Metadata>(
-        future: MetadataFetch.extract(smc.url),
+        future: manualFetch(smc),
         builder: (BuildContext context, AsyncSnapshot<Metadata> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             return doCard(smc, snapshot.data);
