@@ -49,7 +49,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wirewalk()↳',
+      color: Constants.DARK,
       theme: ThemeData(
+          primaryColor: Constants.DARK,
           fontFamily: 'Hollowcraft',
           scrollbarTheme: ScrollbarThemeData().copyWith(
             thumbColor: MaterialStateProperty.resolveWith(

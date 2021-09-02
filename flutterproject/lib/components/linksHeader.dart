@@ -23,62 +23,62 @@ class _LinksHeaderState extends State<LinksHeader> {
   @override
   Widget build(BuildContext context) {
     if (Constants.isTouchScreen()) {
-      return Container(
-          height: 120,
-          child: Column(children: [
-            Row(
-              children: [
-                Container(
-                  width: 10,
-                ),
-                Expanded(child: mainLogo()),
-                Container(
-                  width: 10,
-                ),
-                Expanded(
-                    flex: 4,
-                    child: Column(children: [
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: 20,
-                            ),
-                            Expanded(child: watchTrailer()),
-                            Container(
-                              width: 20,
-                            ),
-                            Expanded(child: steam()),
-                            Container(
-                              width: 20,
-                            ),
-                          ]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Expanded(child: onMedia()),
-                          Container(
-                            width: 10,
-                          ),
-                          Expanded(child: pressKit()),
-                          Container(
-                            width: 10,
-                          ),
-                          Expanded(child: contact()),
-                          Container(
-                            width: 10,
-                          ),
-                        ],
-                      )
-                    ]))
-              ],
+      return Column(children: [
+        Row(
+          children: [
+            Container(
+              width: 10,
             ),
-            Divider(
-              color: Constants.LIGHT,
-              height: 5,
-              thickness: 5,
-            )
-          ]));
+            Expanded(child: mainLogo()),
+            Container(
+              width: 10,
+            ),
+            Expanded(
+                flex: 4,
+                child: Column(children: [
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                          width: 20,
+                        ),
+                        Expanded(child: watchTrailer()),
+                        Container(
+                          width: 20,
+                        ),
+                        Expanded(child: steam()),
+                        Container(
+                          width: 20,
+                        ),
+                      ]),
+                  Container(
+                    height: 5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Expanded(child: pressKit()),
+                      Container(
+                        width: 10,
+                      ),
+                      Expanded(child: contact()),
+                      Container(
+                        width: 10,
+                      ),
+                    ],
+                  )
+                ]))
+          ],
+        ),
+        Container(
+          height: 10,
+        ),
+        Divider(
+          color: Constants.LIGHT,
+          height: 5,
+          thickness: 5,
+        )
+      ]);
     } else {
       return Stack(alignment: AlignmentDirectional.center, children: [
         Material(
