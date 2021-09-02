@@ -67,40 +67,11 @@ flutter:
     - assets/minigame/website_outside.png
     - assets/minigame/website_room.png
 
-    - assets/minigame/images/websitesprites_01.png
-    - assets/minigame/images/websitesprites_02.png
-    - assets/minigame/images/websitesprites_03.png
-    - assets/minigame/images/websitesprites_04.png
-    - assets/minigame/images/websitesprites_05.png
-    - assets/minigame/images/websitesprites_06.png
-    - assets/minigame/images/websitesprites_07.png
-    - assets/minigame/images/websitesprites_08.png
-    - assets/minigame/images/websitesprites_09.png
-    - assets/minigame/images/websitesprites_10.png
-    - assets/minigame/images/websitesprites_11.png
-    - assets/minigame/images/websitesprites_12.png
-    - assets/minigame/images/websitesprites_13.png
-    - assets/minigame/images/websitesprites_14.png
-    - assets/minigame/images/websitesprites_15.png
-    - assets/minigame/images/websitesprites_16.png
-    - assets/minigame/images/websitesprites_17.png
-    - assets/minigame/images/websitesprites_18.png
-    - assets/minigame/images/websitesprites_19.png
-    - assets/minigame/images/websitesprites_20.png
-    - assets/minigame/images/websitesprites_21.png
-    - assets/minigame/images/websitesprites_22.png
-    - assets/minigame/images/websitesprites_23.png
-    - assets/minigame/images/websitesprites_24.png
-    - assets/minigame/images/websitesprites_25.png
-    - assets/minigame/images/websitesprites_26.png
-    - assets/minigame/images/websitesprites_27.png
-    - assets/minigame/images/websitesprites_28.png
-    - assets/minigame/images/websitesprites_29.png
-    - assets/minigame/images/websitesprites_30.png
-    - assets/minigame/images/websitesprites_31.png
-    - assets/minigame/images/websitesprites_32.png
+    - assets/minigame/images/
 
     - assets/websites.json
+
+    - assets/websitebanners/
 
   fonts:
     - family: RobotPC

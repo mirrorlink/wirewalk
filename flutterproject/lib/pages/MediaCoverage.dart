@@ -69,7 +69,8 @@ class _MediaCoverageState extends State<MediaCoverage> {
               flex: 2,
               child: Row(children: [
                 Expanded(
-                    child: Image.network(metadata['metadata']['banner'],
+                    child: Image.asset(
+                        'assets/websitebanners/' + metadata['name'] + '.img',
                         fit: BoxFit.cover))
               ])),
           Expanded(
@@ -123,12 +124,6 @@ class _MediaCoverageState extends State<MediaCoverage> {
                               fontStyle: FontStyle.italic,
                               fontFamily: 'Roboto'),
                         )),
-                        Container(width: 10),
-                        Container(
-                            width: 25,
-                            child: Image.network(metadata['favicons'].length > 0
-                                ? metadata['favicons'][0]
-                                : '')),
                         Container(width: 10),
                         getFlag(metadata['lang']),
                         Container(

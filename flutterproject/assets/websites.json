@@ -18,7 +18,8 @@
                 "https://www.gamerview.com.br/noticias/conheca-o-indie-brasileiro-futurista-wirewalk%E2%86%B3-que-chega-em-breve/www.gamerview.com.br/wp-content/uploads/2019/11/cropped-icone-gamerview-192x192.png",
                 "https://www.gamerview.com.br/noticias/conheca-o-indie-brasileiro-futurista-wirewalk%E2%86%B3-que-chega-em-breve/www.gamerview.com.br/wp-content/uploads/2019/11/cropped-icone-gamerview-180x180.png"
             ],
-            "lang": "br"
+            "lang": "br",
+            "name": "gamerview"
         },
         {
             "metadata": {
@@ -30,7 +31,8 @@
             },
             "socials": {},
             "favicons": [],
-            "lang": "br"
+            "lang": "br",
+            "name": "ultimaficha"
         },
         {
             "metadata": {
@@ -45,7 +47,8 @@
                 "https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzellaimgs/favicon.png",
                 "https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzellaimgs/favicon.png"
             ],
-            "lang": "br"
+            "lang": "br",
+            "name": "subarashow"
         },
         {
             "metadata": {
@@ -56,7 +59,8 @@
             },
             "socials": {},
             "favicons": [],
-            "lang": "us"
+            "lang": "us",
+            "name": "fivemgsite"
         },
         {
             "metadata": {
@@ -73,7 +77,8 @@
             "favicons": [
                 "http://kopodo.com/favicon.ico"
             ],
-            "lang": "es"
+            "lang": "es",
+            "name": "kopodo"
         }
     ]
 }
