@@ -49,10 +49,10 @@ class _LinksHeaderState extends State<LinksHeader> {
                   Container(
                     width: 30,
                   ),
-                  Expanded(child: onMedia()),
-                  Container(
-                    width: 30,
-                  ),
+                  //Expanded(child: onMedia()),
+                  //Container(
+                  //  width: 30,
+                  //),
                   Expanded(child: contact()),
                   Container(
                     width: 20,

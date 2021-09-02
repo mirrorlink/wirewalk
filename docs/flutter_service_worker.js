@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "e404e0654412ff31e5bed6f9e12a33eb",
+  "assets/AssetManifest.json": "7abd3438901514dbde54840206f95172",
 "assets/assets/dani.png": "a19b024b1af00c73e08dff6f757e520d",
 "assets/assets/debugchicken.png": "18b28b20deeff9f29625bb06bd75e756",
 "assets/assets/logo.svg": "021d4f0b0beabb24547c2c559f578334",
@@ -46,13 +46,13 @@ const RESOURCES = {
 "assets/assets/ogimage.png": "fabbf65e1493387e662192235a1f2aca",
 "assets/assets/PressKit.zip": "9c06fca6945343f24b0abfdb16038bbb",
 "assets/assets/steam.svg": "262c66033d489035a285be1ac29ed4f4",
-"assets/FontManifest.json": "ea42279c51a3703180055bb6a829776b",
+"assets/FontManifest.json": "7ee0de62012dece06f3f50bd6cd230dc",
 "assets/fonts/Hollowcraft.ttf": "b958a041d7fd73663174e67fda568660",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
 "assets/fonts/Minimal4.ttf": "e9ff1f07315fc1988e503060a858cf52",
 "assets/fonts/monogram.ttf": "258eab896fa81a72b40c038a3d14268a",
 "assets/fonts/RobotPC.ttf": "71112f21d4ad630ec9d2282bf58b4197",
-"assets/NOTICES": "065692777143bdadafc8073e7bb2becb",
+"assets/NOTICES": "318b4c259fcb697b47b2b570711971a8",
 "assets/packages/country_icons/icons/flags/png/2.5x/ad.png": "9ab17d57db08e440f27c65f0b29bd520",
 "assets/packages/country_icons/icons/flags/png/2.5x/ae.png": "fd9b156fd27b63807fb4c0755cd2a073",
 "assets/packages/country_icons/icons/flags/png/2.5x/af.png": "974a6eb9adf8fdae81660d4e5dc5ba2e",
@@ -819,15 +819,14 @@ const RESOURCES = {
 "assets/packages/country_icons/icons/flags/svg/za.svg": "bb194490cc6cd231c2a318d8946b08ab",
 "assets/packages/country_icons/icons/flags/svg/zm.svg": "53783063b6ae78cd142f0763a2a846cf",
 "assets/packages/country_icons/icons/flags/svg/zw.svg": "80632a3cfdf4986bcae6696cc83235d7",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/flutter_inappwebview/t_rex_runner/t-rex.css": "5a8d0222407e388155d7d1395a75d5b9",
 "assets/packages/flutter_inappwebview/t_rex_runner/t-rex.html": "16911fcc170c8af1c5457940bd0bf055",
 "favicon.png": "e743ca1035ae5d03bdad11dd5da8a752",
 "icons/Icon-192.png": "5db454e745188cacc89b4731dba81552",
 "icons/Icon-512.png": "c14b20101b3029e70e24a640a34ce885",
-"index.html": "457eaef6f73d23f44fcb37f4c3a07c31",
-"/": "457eaef6f73d23f44fcb37f4c3a07c31",
-"main.dart.js": "b4df3e67e41b73a1e8cde8ecea35bb4e",
+"index.html": "785e156a8465f227ea41dc062dfd46b1",
+"/": "785e156a8465f227ea41dc062dfd46b1",
+"main.dart.js": "c4a336dad7773cfee49d151ad1c62c6a",
 "manifest.json": "5d9c00fba18bc5084fa70cb89413d60e",
 "version.json": "494ba1fbbbdc56d8d64a1be4199896dc"
 };

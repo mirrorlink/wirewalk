@@ -1,9 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:metadata_fetch/metadata_fetch.dart';
 import 'package:wirewalkwebsite/constants.dart';
 import 'package:url_launcher/link.dart';
-import 'package:http/http.dart' as http;
 
 enum Language { br, en, es }
 
@@ -58,7 +56,10 @@ class _MediaCoverageState extends State<MediaCoverage> {
           Language.br),
       SingleMediaCoverage(
           'https://www.5mgsite.com/post/wirewalk-a-futuristic-themed-zelda-game-where-you-have-to-face-a-computer-virus',
-          Language.en)
+          Language.en),
+      SingleMediaCoverage(
+          'http://kopodo.com/2021/aman-lo-retro-entonces-no-se-pierdan-el-video-de-wirewalk%E2%86%B3-una-aventura-indie-para-steam/',
+          Language.es)
     ];
   }
 
@@ -75,29 +76,19 @@ class _MediaCoverageState extends State<MediaCoverage> {
         package: 'country_icons');
   }
 
-  Future<Metadata> manualFetch(SingleMediaCoverage smc) async {
-    var response = await http.get(Uri.parse(smc.url), headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, GET, OPTIONS, PUT, DELETE, HEAD",
-      "Access-Control-Allow-Headers": "Content-Type"
-    });
-
-    return MetadataParser.parse(MetadataFetch.responseToDocument(response));
-  }
-
   Widget card(SingleMediaCoverage smc) {
-    return FutureBuilder<Metadata>(
-        future: manualFetch(smc),
-        builder: (BuildContext context, AsyncSnapshot<Metadata> snapshot) {
+    return FutureBuilder<void>(
+        future: Future.delayed(Duration(seconds: 10)),
+        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return doCard(smc, snapshot.data);
+            return Container(); //doCard(smc, snapshot.data);
           }
 
           return Container();
         });
   }
 
-  Widget doCard(SingleMediaCoverage smc, Metadata m) {
+  /*Widget doCard(SingleMediaCoverage smc, Metadata m) {
     if (m.description == null) {
       m.description = m.title;
     }
@@ -177,5 +168,5 @@ class _MediaCoverageState extends State<MediaCoverage> {
         ],
       ),
     );
-  }
+  }*/
 }
