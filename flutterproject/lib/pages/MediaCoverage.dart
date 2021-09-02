@@ -28,29 +28,41 @@ class _MediaCoverageState extends State<MediaCoverage> {
           if (snapshot.connectionState == ConnectionState.done) {
             List<dynamic> websiteMetadatas = snapshot.data['list'];
 
-            return GridView.count(
-                crossAxisCount: 3,
-                padding: EdgeInsets.all(30),
-                childAspectRatio: 1,
-                mainAxisSpacing: 50,
-                crossAxisSpacing: 50,
-                shrinkWrap: false,
-                children: List.generate(websiteMetadatas.length, (index) {
-                  return GridTile(
-                      child: Link(
-                          uri: Uri.parse(
-                              websiteMetadatas[index]['metadata']['website']),
-                          target: LinkTarget.blank,
-                          builder:
-                              (BuildContext context, FollowLink followLink) {
-                            return TextButton(
-                                onPressed: followLink,
-                                child: card(websiteMetadatas[index]));
-                          }));
-                }));
+            if (Constants.isTouchScreen()) {
+              return SingleChildScrollView(
+                  child: Column(
+                      children: List.generate(websiteMetadatas.length, (index) {
+                return Container(
+                    height: 300,
+                    padding: EdgeInsets.all(10),
+                    child: Row(children: [
+                      Expanded(child: singleLink(websiteMetadatas[index]))
+                    ]));
+              })));
+            } else {
+              return GridView.count(
+                  crossAxisCount: 3,
+                  padding: EdgeInsets.all(30),
+                  childAspectRatio: 1,
+                  mainAxisSpacing: 50,
+                  crossAxisSpacing: 50,
+                  shrinkWrap: false,
+                  children: List.generate(websiteMetadatas.length, (index) {
+                    return GridTile(child: singleLink(websiteMetadatas[index]));
+                  }));
+            }
           }
 
           return Container();
+        });
+  }
+
+  Widget singleLink(dynamic metadata) {
+    return Link(
+        uri: Uri.parse(metadata['metadata']['website']),
+        target: LinkTarget.blank,
+        builder: (BuildContext context, FollowLink followLink) {
+          return TextButton(onPressed: followLink, child: card(metadata));
         });
   }
 

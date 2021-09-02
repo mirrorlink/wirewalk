@@ -14,52 +14,112 @@ class LinksHeader extends StatefulWidget {
 
 class _LinksHeaderState extends State<LinksHeader> {
   AutoSizeGroup linksGroup = AutoSizeGroup();
+  AutoSizeGroup linksGroup2 = AutoSizeGroup();
 
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: AlignmentDirectional.center, children: [
-      Material(
-          elevation: 40,
-          child: Container(
+    if (Constants.isTouchScreen()) {
+      return Container(
+          height: 120,
+          child: Column(children: [
+            Row(
+              children: [
+                Container(
+                  width: 10,
+                ),
+                Expanded(child: mainLogo()),
+                Container(
+                  width: 10,
+                ),
+                Expanded(
+                    flex: 4,
+                    child: Column(children: [
+                      Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              width: 20,
+                            ),
+                            Expanded(child: watchTrailer()),
+                            Container(
+                              width: 20,
+                            ),
+                            Expanded(child: steam()),
+                            Container(
+                              width: 20,
+                            ),
+                          ]),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Expanded(child: onMedia()),
+                          Container(
+                            width: 10,
+                          ),
+                          Expanded(child: pressKit()),
+                          Container(
+                            width: 10,
+                          ),
+                          Expanded(child: contact()),
+                          Container(
+                            width: 10,
+                          ),
+                        ],
+                      )
+                    ]))
+              ],
+            ),
+            Divider(
+              color: Constants.LIGHT,
+              height: 5,
+              thickness: 5,
+            )
+          ]));
+    } else {
+      return Stack(alignment: AlignmentDirectional.center, children: [
+        Material(
+            elevation: 40,
+            child: Container(
+              height: 80,
+              color: Constants.DARK,
+              width: MediaQuery.of(context).size.width,
+            )),
+        Container(
             height: 80,
-            color: Constants.DARK,
-            width: MediaQuery.of(context).size.width,
-          )),
-      Container(
-          height: 80,
-          child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 1200),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 20,
-                  ),
-                  Expanded(child: mainLogo()),
-                  Container(
-                    width: 20,
-                  ),
-                  Expanded(child: watchTrailer()),
-                  Expanded(child: steam()),
-                  Container(
-                    width: 10,
-                  ),
-                  Expanded(child: pressKit()),
-                  Container(
-                    width: 30,
-                  ),
-                  Expanded(child: onMedia()),
-                  Container(
-                    width: 30,
-                  ),
-                  Expanded(child: contact()),
-                  Container(
-                    width: 20,
-                  ),
-                ],
-              ))),
-    ]);
+            child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: 1100),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 20,
+                    ),
+                    Expanded(child: mainLogo()),
+                    Container(
+                      width: 20,
+                    ),
+                    Expanded(child: watchTrailer()),
+                    Expanded(child: steam()),
+                    Container(
+                      width: 10,
+                    ),
+                    Expanded(child: pressKit()),
+                    Container(
+                      width: 15,
+                    ),
+                    Expanded(child: onMedia()),
+                    Container(
+                      width: 10,
+                    ),
+                    Expanded(child: contact()),
+                    Container(
+                      width: 20,
+                    ),
+                  ],
+                ))),
+      ]);
+    }
   }
 
   Widget mainLogo() {
@@ -104,7 +164,10 @@ class _LinksHeaderState extends State<LinksHeader> {
               return Container(
                   width: 1000,
                   height: MediaQuery.of(context).size.height,
-                  margin: EdgeInsets.only(left: 80, right: 80, top: 80),
+                  margin: EdgeInsets.only(
+                      left: Constants.isTouchScreen() ? 20 : 80,
+                      right: Constants.isTouchScreen() ? 20 : 80,
+                      top: Constants.isTouchScreen() ? 20 : 80),
                   child: Column(children: [
                     Expanded(
                         child: Container(
@@ -127,8 +190,8 @@ class _LinksHeaderState extends State<LinksHeader> {
           );
         },
         child: AutoSizeText(
-          'On Media',
-          group: linksGroup,
+          'Media',
+          group: Constants.isTouchScreen() ? linksGroup2 : linksGroup,
           maxLines: 1,
           style: TextStyle(fontSize: 60),
         ));
@@ -145,7 +208,7 @@ class _LinksHeaderState extends State<LinksHeader> {
               onPressed: followLink,
               child: AutoSizeText(
                 'Contact',
-                group: linksGroup,
+                group: Constants.isTouchScreen() ? linksGroup2 : linksGroup,
                 maxLines: 1,
                 style: TextStyle(fontSize: 60),
               ));
@@ -188,7 +251,7 @@ class _LinksHeaderState extends State<LinksHeader> {
               child: AutoSizeText(
                 'PressKit',
                 maxLines: 1,
-                group: linksGroup,
+                group: Constants.isTouchScreen() ? linksGroup2 : linksGroup,
                 style: TextStyle(fontSize: 60),
               ));
         });
