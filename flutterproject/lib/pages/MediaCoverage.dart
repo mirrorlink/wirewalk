@@ -2,14 +2,18 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:wirewalkwebsite/constants.dart';
 import 'package:url_launcher/link.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
 
 class MediaCoverage extends StatefulWidget {
-  final Map<String, dynamic> mediaData;
-
-  MediaCoverage(this.mediaData);
-
   @override
   _MediaCoverageState createState() => _MediaCoverageState();
+}
+
+Future<Map<String, dynamic>> parseJsonFromAssets(String assetsPath) async {
+  return rootBundle
+      .loadString(assetsPath)
+      .then((jsonStr) => jsonDecode(jsonStr));
 }
 
 class _MediaCoverageState extends State<MediaCoverage> {
@@ -17,30 +21,39 @@ class _MediaCoverageState extends State<MediaCoverage> {
 
   @override
   Widget build(BuildContext context) {
-    List<dynamic> websiteMetadatas = widget.mediaData['list'];
+    return FutureBuilder<Map<String, dynamic>>(
+        future: parseJsonFromAssets('assets/websites.json'),
+        builder: (BuildContext context,
+            AsyncSnapshot<Map<String, dynamic>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            List<dynamic> websiteMetadatas = snapshot.data['list'];
 
-    if (Constants.isTouchScreen()) {
-      return ListView(
-          children: List.generate(websiteMetadatas.length, (index) {
-        return Container(
-            height: 300,
-            padding: EdgeInsets.all(10),
-            child: Row(children: [
-              Expanded(child: singleLink(websiteMetadatas[index]))
-            ]));
-      }));
-    }
+            if (Constants.isTouchScreen()) {
+              return ListView(
+                  children: List.generate(websiteMetadatas.length, (index) {
+                return Container(
+                    height: 300,
+                    padding: EdgeInsets.all(10),
+                    child: Row(children: [
+                      Expanded(child: singleLink(websiteMetadatas[index]))
+                    ]));
+              }));
+            }
 
-    return GridView.count(
-        crossAxisCount: 3,
-        padding: EdgeInsets.all(30),
-        childAspectRatio: 1,
-        mainAxisSpacing: 50,
-        crossAxisSpacing: 50,
-        shrinkWrap: false,
-        children: List.generate(websiteMetadatas.length, (index) {
-          return GridTile(child: singleLink(websiteMetadatas[index]));
-        }));
+            return GridView.count(
+                crossAxisCount: 3,
+                padding: EdgeInsets.all(30),
+                childAspectRatio: 1,
+                mainAxisSpacing: 50,
+                crossAxisSpacing: 50,
+                shrinkWrap: false,
+                children: List.generate(websiteMetadatas.length, (index) {
+                  return GridTile(child: singleLink(websiteMetadatas[index]));
+                }));
+          }
+
+          return Container();
+        });
   }
 
   Widget singleLink(dynamic metadata) {

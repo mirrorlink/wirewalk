@@ -6,8 +6,6 @@ import 'package:wirewalkwebsite/constants.dart';
 import 'package:wirewalkwebsite/pages/MediaCoverage.dart';
 import 'package:wirewalkwebsite/pages/youtubePlayer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart' show rootBundle;
 
 class LinksHeader extends StatefulWidget {
   final Function showModal;
@@ -21,12 +19,6 @@ class LinksHeader extends StatefulWidget {
 class _LinksHeaderState extends State<LinksHeader> {
   AutoSizeGroup linksGroup = AutoSizeGroup();
   AutoSizeGroup linksGroup2 = AutoSizeGroup();
-
-  Future<Map<String, dynamic>> parseJsonFromAssets(String assetsPath) async {
-    return rootBundle
-        .loadString(assetsPath)
-        .then((jsonStr) => jsonDecode(jsonStr));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -142,40 +134,52 @@ class _LinksHeaderState extends State<LinksHeader> {
   }
 
   Widget watchTrailer() {
-    return TextButton(
-        onPressed: () async {
-          widget.showModal(true);
+    if (Constants.isTouchScreen()) {
+      return Link(
+          uri: Uri.parse('https://www.youtube.com/watch?v=MdMhGzTZNIg'),
+          builder: (BuildContext context, FollowLink followLink) {
+            return TextButton(
+                onPressed: followLink,
+                child: AutoSizeText(
+                  'Trailer',
+                  group: linksGroup,
+                  maxLines: 1,
+                  style: TextStyle(fontSize: 60),
+                ));
+          });
+    } else {
+      return TextButton(
+          onPressed: () async {
+            widget.showModal(true);
 
-          await showGeneralDialog(
-            context: context,
-            barrierColor: Colors.black12.withOpacity(0.6),
-            barrierDismissible: true,
-            barrierLabel: "trailer",
-            transitionDuration: Duration(milliseconds: 200),
-            pageBuilder: (_, __, ___) {
-              return SizedBox.expand(child: YoutubePlayer());
-            },
-          );
+            await showGeneralDialog(
+              context: context,
+              barrierColor: Colors.black12.withOpacity(0.6),
+              barrierDismissible: true,
+              barrierLabel: "trailer",
+              transitionDuration: Duration(milliseconds: 200),
+              pageBuilder: (_, __, ___) {
+                return SizedBox.expand(child: YoutubePlayer());
+              },
+            );
 
-          await Future.delayed(Duration(milliseconds: 500));
+            await Future.delayed(Duration(milliseconds: 500));
 
-          widget.showModal(false);
-        },
-        child: AutoSizeText(
-          'Trailer',
-          group: linksGroup,
-          maxLines: 1,
-          style: TextStyle(fontSize: 60),
-        ));
+            widget.showModal(false);
+          },
+          child: AutoSizeText(
+            'Trailer',
+            group: linksGroup,
+            maxLines: 1,
+            style: TextStyle(fontSize: 60),
+          ));
+    }
   }
 
   Widget onMedia() {
     return TextButton(
         onPressed: () async {
           widget.showModal(true);
-
-          Map<String, dynamic> loadfile =
-              await parseJsonFromAssets('assets/websites.json');
 
           await showGeneralDialog(
             context: context,
@@ -192,8 +196,7 @@ class _LinksHeaderState extends State<LinksHeader> {
                     child: Column(children: [
                       Expanded(
                           child: Container(
-                              color: Colors.white38,
-                              child: MediaCoverage(loadfile))),
+                              color: Colors.white38, child: MediaCoverage())),
                       Container(
                         height: 50,
                       ),
@@ -214,7 +217,7 @@ class _LinksHeaderState extends State<LinksHeader> {
                   width: 1000,
                   height: MediaQuery.of(context).size.height,
                   margin: EdgeInsets.only(left: 80, right: 80, top: 80),
-                  child: mediaCenter(loadfile));
+                  child: mediaCenter());
             },
           );
 
@@ -230,11 +233,9 @@ class _LinksHeaderState extends State<LinksHeader> {
         ));
   }
 
-  Widget mediaCenter(Map<String, dynamic> loadfile) {
+  Widget mediaCenter() {
     return Column(children: [
-      Expanded(
-          child:
-              Container(color: Colors.white38, child: MediaCoverage(loadfile))),
+      Expanded(child: Container(color: Colors.white38, child: MediaCoverage())),
       Container(
         height: 50,
       ),
