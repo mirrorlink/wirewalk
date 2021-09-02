@@ -20,16 +20,15 @@ class _MediaCoverageState extends State<MediaCoverage> {
     List<dynamic> websiteMetadatas = widget.mediaData['list'];
 
     if (Constants.isTouchScreen()) {
-      return SingleChildScrollView(
-          child: Column(
-              children: List.generate(websiteMetadatas.length, (index) {
+      return ListView(
+          children: List.generate(websiteMetadatas.length, (index) {
         return Container(
             height: 300,
             padding: EdgeInsets.all(10),
             child: Row(children: [
               Expanded(child: singleLink(websiteMetadatas[index]))
             ]));
-      })));
+      }));
     }
 
     return GridView.count(

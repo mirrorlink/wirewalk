@@ -172,32 +172,37 @@ class _LinksHeaderState extends State<LinksHeader> {
             barrierLabel: "media",
             transitionDuration: Duration(milliseconds: 400),
             pageBuilder: (_, __, ___) {
+              if (Constants.isTouchScreen()) {
+                return Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                    child: Column(children: [
+                      Expanded(
+                          child: Container(
+                              color: Colors.white38,
+                              child: MediaCoverage(loadfile))),
+                      Container(
+                        height: 50,
+                      ),
+                      TextButton(
+                        child: Text(
+                          "Close",
+                          style: TextStyle(fontSize: 60),
+                        ),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                      Container(
+                        height: 50,
+                      ),
+                    ]));
+              }
+
               return Container(
                   width: 1000,
                   height: MediaQuery.of(context).size.height,
-                  margin: EdgeInsets.only(
-                      left: Constants.isTouchScreen() ? 20 : 80,
-                      right: Constants.isTouchScreen() ? 20 : 80,
-                      top: Constants.isTouchScreen() ? 20 : 80),
-                  child: Column(children: [
-                    Expanded(
-                        child: Container(
-                            color: Colors.white38,
-                            child: MediaCoverage(loadfile))),
-                    Container(
-                      height: 50,
-                    ),
-                    TextButton(
-                      child: Text(
-                        "Close",
-                        style: TextStyle(fontSize: 60),
-                      ),
-                      onPressed: () => Navigator.pop(context),
-                    ),
-                    Container(
-                      height: 50,
-                    ),
-                  ]));
+                  margin: EdgeInsets.only(left: 80, right: 80, top: 80),
+                  child: mediaCenter(loadfile));
             },
           );
         },
@@ -207,6 +212,27 @@ class _LinksHeaderState extends State<LinksHeader> {
           maxLines: 1,
           style: TextStyle(fontSize: 60),
         ));
+  }
+
+  Widget mediaCenter(Map<String, dynamic> loadfile) {
+    return Column(children: [
+      Expanded(
+          child:
+              Container(color: Colors.white38, child: MediaCoverage(loadfile))),
+      Container(
+        height: 50,
+      ),
+      TextButton(
+        child: Text(
+          "Close",
+          style: TextStyle(fontSize: 60),
+        ),
+        onPressed: () => Navigator.pop(context),
+      ),
+      Container(
+        height: 50,
+      ),
+    ]);
   }
 
   Widget contact() {
