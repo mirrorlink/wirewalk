@@ -2,6 +2,53 @@
     "list": [
         {
             "metadata": {
+                "website": "https://gametimes.com.br/wirewalk%E2%86%B3-e-um-jogo-100-nacional-e-sera-lancado-no-dia-23-de-setembro-na-steam/",
+                "title": "Wirewalk()↳: é um jogo 100% nacional e será lançado no dia 23 de setembro na Steam! - The Game Times",
+                "description": "A partir de 23 de setembro, estará disponível para download na Steam o game nacional independente Wirewalk()↳.",
+                "banner": "https://gametimes.com.br/wp-content/uploads/2021/09/Wirewalk.png"
+            },
+            "socials": {},
+            "favicons": [
+                "https://c0.wp.com/c/5.8/wp-includes/css/dashicons.min.css",
+                "https://gametimes.com.br/wirewalk%E2%86%B3-e-um-jogo-100-nacional-e-sera-lancado-no-dia-23-de-setembro-na-steam//gametimes.com.br/wp-content/plugins/sportspress/assets/css/icons.css?ver=2.7",
+                "https://gametimes.com.br/wp-content/themes/jnews/assets/dist/font/jegicon.woff",
+                "https://gametimes.com.br/wp-content/uploads/2021/09/cropped-icon-game-times-32x32.jpg",
+                "https://gametimes.com.br/wp-content/uploads/2021/09/cropped-icon-game-times-192x192.jpg",
+                "https://gametimes.com.br/wp-content/uploads/2021/09/cropped-icon-game-times-180x180.jpg"
+            ],
+            "lang": "br",
+            "name": "gamestimes"
+        },
+        {
+            "metadata": {
+                "website": "https://www.5mgsite.com/post/wirewalk-a-futuristic-themed-zelda-game-where-you-have-to-face-a-computer-virus",
+                "title": "WIREWALK()↳: a futuristic themed Zelda game where you have to face a computer virus.",
+                "description": "Wirewalk()↳ is an action rpg game developed by Debugchicken and daniserranu where you play as a girl who needs to face a virus that corrupts any electronic device in a world totally dependent on technology and the internet. The game is inspired by games like The Legend of Zelda for Game Boy with a map to explore and dungeons full of enemies. The game has graphics similar to Game Boy games and a strong influence from The Legend of Zelda: A Link's Awakening, as well as similar gameplay with item m",
+                "banner": "https://static.wixstatic.com/media/b06961_fc0508efba964c39a258dee9fc581063~mv2.gif/v1/fit/w_498%2Ch_360%2Cal_c%2Cq_80/file.gif"
+            },
+            "socials": {},
+            "favicons": [],
+            "lang": "us",
+            "name": "fivemgsite"
+        },
+        {
+            "metadata": {
+                "website": "https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzella",
+                "title": "Wirewalk e a dificuldade pra criação de jogos indies, com Danilo Ganzella - Subarashow #32 - Subarashow",
+                "description": "Wirewalk()↳ é um jogo de RPG/ação em 8 bits, onde um virus poderoso dominou os sistemas digitais, cabendo ao jogador enfrentá-los através de diferentes dungeons.\n\nConvidamos Danilo Ganzella, criador do jogo, para conversar sobre a concepção de Wirewalk()↳, e todas as dificuldades encontradas para finalizar o projeto.\n\nNão deixe de marcar o seu wishlist no Wirewalk()↳ em sua página do Steam: https://store.steampowered.com/app/1636700/Wirewalk/",
+                "banner": "https://podcastfy.s3-sa-east-1.amazonaws.com/episodeWebsiteFixed/CkT4quBiSCL8bxyQP/episodeWebsiteFixed_qCuBEeBwbbb9S83tk_32_20210606",
+                "themeColor": "#FFFF00"
+            },
+            "socials": {},
+            "favicons": [
+                "https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzellaimgs/favicon.png",
+                "https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzellaimgs/favicon.png"
+            ],
+            "lang": "br",
+            "name": "subarashow"
+        },
+        {
+            "metadata": {
                 "website": "https://www.gamerview.com.br/noticias/conheca-o-indie-brasileiro-futurista-wirewalk%E2%86%B3-que-chega-em-breve",
                 "title": "Conheça o indie brasileiro futurista Wirewalk()↳, que chega em breve",
                 "description": "O RPG de ação desenvolvido pela debugChicken já tem uma data prévia para lançamento e com demo playtest disponível.",
@@ -23,47 +70,6 @@
         },
         {
             "metadata": {
-                "website": "https://www.ultimaficha.com.br/2021/05/25/wirewalk-conheca-o-jogo-o-mais-novo-indie-100-br/",
-                "title": "Wirewalk()↳ - Conheça o mais novo indie 100% BR - Última Ficha",
-                "description": "Wirewalk()↳ é o mais novo jogo indie 100% BR. Produzido por debugChicken e Danielle Serranú o jogo é um RPG de ação com um visual nostágico.",
-                "banner": "https://www.ultimaficha.com.br/wp-content/uploads/2021/05/FullHD_landscape.png",
-                "themeColor": "#733d91"
-            },
-            "socials": {},
-            "favicons": [],
-            "lang": "br",
-            "name": "ultimaficha"
-        },
-        {
-            "metadata": {
-                "website": "https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzella",
-                "title": "Wirewalk e a dificuldade pra criação de jogos indies, com Danilo Ganzella - Subarashow #32 - Subarashow",
-                "description": "Wirewalk()↳ é um jogo de RPG/ação em 8 bits, onde um virus poderoso dominou os sistemas digitais, cabendo ao jogador enfrentá-los através de diferentes dungeons.\n\nConvidamos Danilo Ganzella, criador do jogo, para conversar sobre a concepção de Wirewalk()↳, e todas as dificuldades encontradas para finalizar o projeto.\n\nNão deixe de marcar o seu wishlist no Wirewalk()↳ em sua página do Steam: https://store.steampowered.com/app/1636700/Wirewalk/",
-                "banner": "https://podcastfy.s3-sa-east-1.amazonaws.com/episodeWebsiteFixed/CkT4quBiSCL8bxyQP/episodeWebsiteFixed_qCuBEeBwbbb9S83tk_32_20210606",
-                "themeColor": "#FFFF00"
-            },
-            "socials": {},
-            "favicons": [
-                "https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzellaimgs/favicon.png",
-                "https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzellaimgs/favicon.png"
-            ],
-            "lang": "br",
-            "name": "subarashow"
-        },
-        {
-            "metadata": {
-                "website": "https://www.5mgsite.com/post/wirewalk-a-futuristic-themed-zelda-game-where-you-have-to-face-a-computer-virus",
-                "title": "WIREWALK()↳: a futuristic themed Zelda game where you have to face a computer virus.",
-                "description": "Wirewalk()↳ is an action rpg game developed by Debugchicken and daniserranu where you play as a girl who needs to face a virus that corrupts any electronic device in a world totally dependent on technology and the internet. The game is inspired by games like The Legend of Zelda for Game Boy with a map to explore and dungeons full of enemies. The game has graphics similar to Game Boy games and a strong influence from The Legend of Zelda: A Link's Awakening, as well as similar gameplay with item m",
-                "banner": "https://static.wixstatic.com/media/b06961_fc0508efba964c39a258dee9fc581063~mv2.gif/v1/fit/w_498%2Ch_360%2Cal_c%2Cq_80/file.gif"
-            },
-            "socials": {},
-            "favicons": [],
-            "lang": "us",
-            "name": "fivemgsite"
-        },
-        {
-            "metadata": {
                 "website": "http://kopodo.com/2021/aman-lo-retro-entonces-no-se-pierdan-el-video-de-wirewalk%E2%86%B3-una-aventura-indie-para-steam/",
                 "title": "¿Aman lo retro? Entonces no se pierdan el video de Wirewalk()↳ una aventura indie para Steam / kopodo",
                 "description": "¿Aman lo retro? Entonces no se pierdan el video de Wirewalk()↳ una aventura indie para Steam /  kopodo",
@@ -79,6 +85,19 @@
             ],
             "lang": "es",
             "name": "kopodo"
+        },
+        {
+            "metadata": {
+                "website": "https://www.ultimaficha.com.br/2021/05/25/wirewalk-conheca-o-jogo-o-mais-novo-indie-100-br/",
+                "title": "Wirewalk()↳ - Conheça o mais novo indie 100% BR - Última Ficha",
+                "description": "Wirewalk()↳ é o mais novo jogo indie 100% BR. Produzido por debugChicken e Danielle Serranú o jogo é um RPG de ação com um visual nostágico.",
+                "banner": "https://www.ultimaficha.com.br/wp-content/uploads/2021/05/FullHD_landscape.png",
+                "themeColor": "#733d91"
+            },
+            "socials": {},
+            "favicons": [],
+            "lang": "br",
+            "name": "ultimaficha"
         }
     ]
 }
