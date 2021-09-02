@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_scroll_web/smooth_scroll_web.dart';
-import 'package:wirewalkwebsite/components/footer.dart';
 import 'package:wirewalkwebsite/components/linksHeader.dart';
 import 'package:wirewalkwebsite/components/mainBody.dart';
 import 'package:wirewalkwebsite/constants.dart';

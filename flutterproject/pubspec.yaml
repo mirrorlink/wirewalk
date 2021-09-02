@@ -41,6 +41,10 @@ dependencies:
 
   universal_html: ^2.0.8
 
+  country_icons: ^2.0.2
+
+  metadata_fetch: ^0.4.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

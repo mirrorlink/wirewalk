@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/link.dart';
 import 'package:wirewalkwebsite/constants.dart';
+import 'package:wirewalkwebsite/pages/MediaCoverage.dart';
 import 'package:wirewalkwebsite/pages/youtubePlayer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
@@ -27,7 +28,7 @@ class _LinksHeaderState extends State<LinksHeader> {
       Container(
           height: 80,
           child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 1000),
+              constraints: BoxConstraints(maxWidth: 1200),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -45,6 +46,10 @@ class _LinksHeaderState extends State<LinksHeader> {
                     width: 10,
                   ),
                   Expanded(child: pressKit()),
+                  Container(
+                    width: 30,
+                  ),
+                  Expanded(child: onMedia()),
                   Container(
                     width: 30,
                   ),
@@ -80,6 +85,49 @@ class _LinksHeaderState extends State<LinksHeader> {
         },
         child: AutoSizeText(
           'Trailer',
+          group: linksGroup,
+          maxLines: 1,
+          style: TextStyle(fontSize: 60),
+        ));
+  }
+
+  Widget onMedia() {
+    return TextButton(
+        onPressed: () {
+          showGeneralDialog(
+            context: context,
+            barrierColor: Colors.black12.withOpacity(0.6),
+            barrierDismissible: true,
+            barrierLabel: "media",
+            transitionDuration: Duration(milliseconds: 400),
+            pageBuilder: (_, __, ___) {
+              return Container(
+                  width: 1000,
+                  height: MediaQuery.of(context).size.height,
+                  margin: EdgeInsets.only(left: 80, right: 80, top: 80),
+                  child: Column(children: [
+                    Expanded(
+                        child: Container(
+                            color: Colors.white38, child: MediaCoverage())),
+                    Container(
+                      height: 50,
+                    ),
+                    TextButton(
+                      child: Text(
+                        "Close",
+                        style: TextStyle(fontSize: 60),
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    ),
+                    Container(
+                      height: 50,
+                    ),
+                  ]));
+            },
+          );
+        },
+        child: AutoSizeText(
+          'On Media',
           group: linksGroup,
           maxLines: 1,
           style: TextStyle(fontSize: 60),
