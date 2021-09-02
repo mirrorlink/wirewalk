@@ -2,15 +2,8 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:wirewalkwebsite/constants.dart';
 import 'package:url_launcher/link.dart';
-
-enum Language { br, en, es }
-
-class SingleMediaCoverage {
-  String url;
-  Language lang;
-
-  SingleMediaCoverage(this.url, this.lang);
-}
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
 
 class MediaCoverage extends StatefulWidget {
   @override
@@ -20,79 +13,53 @@ class MediaCoverage extends StatefulWidget {
 class _MediaCoverageState extends State<MediaCoverage> {
   ScrollController scr = ScrollController();
 
+  Future<Map<String, dynamic>> parseJsonFromAssets(String assetsPath) async {
+    return rootBundle
+        .loadString(assetsPath)
+        .then((jsonStr) => jsonDecode(jsonStr));
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<SingleMediaCoverage> urls = getUrls();
-
-    return GridView.count(
-        crossAxisCount: 4,
-        padding: EdgeInsets.all(30),
-        childAspectRatio: 1,
-        mainAxisSpacing: 50,
-        crossAxisSpacing: 50,
-        shrinkWrap: true,
-        children: List.generate(urls.length, (index) {
-          return GridTile(
-              child: Link(
-                  uri: Uri.parse(urls[index].url),
-                  target: LinkTarget.blank,
-                  builder: (BuildContext context, FollowLink followLink) {
-                    return TextButton(
-                        onPressed: followLink, child: card(urls[index]));
-                  }));
-        }));
-  }
-
-  List<SingleMediaCoverage> getUrls() {
-    return [
-      SingleMediaCoverage(
-          'https://www.gamerview.com.br/noticias/conheca-o-indie-brasileiro-futurista-wirewalk%E2%86%B3-que-chega-em-breve',
-          Language.br),
-      SingleMediaCoverage(
-          'https://www.ultimaficha.com.br/2021/05/25/wirewalk-conheca-o-jogo-o-mais-novo-indie-100-br/',
-          Language.br),
-      SingleMediaCoverage(
-          'https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzella',
-          Language.br),
-      SingleMediaCoverage(
-          'https://www.5mgsite.com/post/wirewalk-a-futuristic-themed-zelda-game-where-you-have-to-face-a-computer-virus',
-          Language.en),
-      SingleMediaCoverage(
-          'http://kopodo.com/2021/aman-lo-retro-entonces-no-se-pierdan-el-video-de-wirewalk%E2%86%B3-una-aventura-indie-para-steam/',
-          Language.es)
-    ];
-  }
-
-  Widget getFlag(Language l) {
-    String ctry = 'br';
-
-    if (l == Language.en) {
-      ctry = 'us';
-    } else if (l == Language.es) {
-      ctry = 'es';
-    }
-
-    return Image.asset('icons/flags/png/' + ctry + '.png',
-        package: 'country_icons');
-  }
-
-  Widget card(SingleMediaCoverage smc) {
-    return FutureBuilder<void>(
-        future: Future.delayed(Duration(seconds: 10)),
-        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+    return FutureBuilder<Map<String, dynamic>>(
+        future: parseJsonFromAssets('assets/websites.json'),
+        builder: (BuildContext context,
+            AsyncSnapshot<Map<String, dynamic>> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return Container(); //doCard(smc, snapshot.data);
+            List<dynamic> websiteMetadatas = snapshot.data['list'];
+
+            return GridView.count(
+                crossAxisCount: 3,
+                padding: EdgeInsets.all(30),
+                childAspectRatio: 1,
+                mainAxisSpacing: 50,
+                crossAxisSpacing: 50,
+                shrinkWrap: false,
+                children: List.generate(websiteMetadatas.length, (index) {
+                  return GridTile(
+                      child: Link(
+                          uri: Uri.parse(
+                              websiteMetadatas[index]['metadata']['website']),
+                          target: LinkTarget.blank,
+                          builder:
+                              (BuildContext context, FollowLink followLink) {
+                            return TextButton(
+                                onPressed: followLink,
+                                child: card(websiteMetadatas[index]));
+                          }));
+                }));
           }
 
           return Container();
         });
   }
 
-  /*Widget doCard(SingleMediaCoverage smc, Metadata m) {
-    if (m.description == null) {
-      m.description = m.title;
-    }
+  Widget getFlag(String lang) {
+    return Image.asset('icons/flags/png/' + lang + '.png',
+        package: 'country_icons');
+  }
 
+  Widget card(dynamic metadata) {
     return Card(
       elevation: 5,
       color: Constants.LIGHT,
@@ -101,7 +68,9 @@ class _MediaCoverageState extends State<MediaCoverage> {
           Expanded(
               flex: 2,
               child: Row(children: [
-                Expanded(child: Image.network(m.image, fit: BoxFit.cover))
+                Expanded(
+                    child: Image.network(metadata['metadata']['banner'],
+                        fit: BoxFit.cover))
               ])),
           Expanded(
             flex: 3,
@@ -111,43 +80,42 @@ class _MediaCoverageState extends State<MediaCoverage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Expanded(
-                      flex: 2,
-                      child: AutoSizeText(
-                        m.title.replaceAll("()↳", "").replaceAll("()", ""),
+                  Container(
+                      height: 60,
+                      child: Text(
+                        metadata['metadata']['title']
+                            .replaceAll("()↳", "")
+                            .replaceAll("()", ""),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        minFontSize: 21,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 27,
+                          fontSize: 25,
                           fontFamily: 'Roboto',
                           color: Constants.DARK,
                         ),
                       )),
                   Expanded(
-                      flex: 3,
-                      child: AutoSizeText(
-                        m.description
+                      flex: 5,
+                      child: Center(
+                          child: AutoSizeText(
+                        metadata['metadata']['description']
                             .replaceAll("()↳", "")
                             .replaceAll("()", ""),
+                        minFontSize: 16,
                         maxLines: 4,
-                        minFontSize: 15,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             fontSize: 20,
                             color: Constants.DARK,
                             fontFamily: 'Roboto'),
-                      )),
-                  Container(
-                    height: 5,
-                  ),
-                  Container(
-                      height: 25,
+                      ))),
+                  Expanded(
+                      flex: 1,
                       child: Row(children: [
                         Expanded(
                             child: AutoSizeText(
-                          Uri.parse(smc.url).host,
+                          Uri.parse(metadata['metadata']['website']).host,
                           minFontSize: 1,
                           style: TextStyle(
                               fontSize: 14,
@@ -156,7 +124,13 @@ class _MediaCoverageState extends State<MediaCoverage> {
                               fontFamily: 'Roboto'),
                         )),
                         Container(width: 10),
-                        getFlag(smc.lang),
+                        Container(
+                            width: 25,
+                            child: Image.network(metadata['favicons'].length > 0
+                                ? metadata['favicons'][0]
+                                : '')),
+                        Container(width: 10),
+                        getFlag(metadata['lang']),
                         Container(
                           width: 10,
                         )
@@ -168,5 +142,5 @@ class _MediaCoverageState extends State<MediaCoverage> {
         ],
       ),
     );
-  }*/
+  }
 }

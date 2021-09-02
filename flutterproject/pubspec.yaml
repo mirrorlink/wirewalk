@@ -100,6 +100,8 @@ flutter:
     - assets/minigame/images/websitesprites_31.png
     - assets/minigame/images/websitesprites_32.png
 
+    - assets/websites.json
+
   fonts:
     - family: RobotPC
       fonts:

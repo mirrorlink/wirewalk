@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "7abd3438901514dbde54840206f95172",
+  "assets/AssetManifest.json": "77676f6fbd3b9741336d756397173435",
 "assets/assets/dani.png": "a19b024b1af00c73e08dff6f757e520d",
 "assets/assets/debugchicken.png": "18b28b20deeff9f29625bb06bd75e756",
 "assets/assets/logo.svg": "021d4f0b0beabb24547c2c559f578334",
@@ -46,6 +46,7 @@ const RESOURCES = {
 "assets/assets/ogimage.png": "fabbf65e1493387e662192235a1f2aca",
 "assets/assets/PressKit.zip": "9c06fca6945343f24b0abfdb16038bbb",
 "assets/assets/steam.svg": "262c66033d489035a285be1ac29ed4f4",
+"assets/assets/websites.json": "d1cc1dbfa98c4ebe2980bc720c15f7ac",
 "assets/FontManifest.json": "7ee0de62012dece06f3f50bd6cd230dc",
 "assets/fonts/Hollowcraft.ttf": "b958a041d7fd73663174e67fda568660",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
@@ -824,9 +825,9 @@ const RESOURCES = {
 "favicon.png": "e743ca1035ae5d03bdad11dd5da8a752",
 "icons/Icon-192.png": "5db454e745188cacc89b4731dba81552",
 "icons/Icon-512.png": "c14b20101b3029e70e24a640a34ce885",
-"index.html": "785e156a8465f227ea41dc062dfd46b1",
-"/": "785e156a8465f227ea41dc062dfd46b1",
-"main.dart.js": "c4a336dad7773cfee49d151ad1c62c6a",
+"index.html": "388b4acb2c853451a114d55bd5e64f5a",
+"/": "388b4acb2c853451a114d55bd5e64f5a",
+"main.dart.js": "2c316fd8060802ab54ba8ce00aee8010",
 "manifest.json": "5d9c00fba18bc5084fa70cb89413d60e",
 "version.json": "494ba1fbbbdc56d8d64a1be4199896dc"
 };
