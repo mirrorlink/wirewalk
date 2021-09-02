@@ -59,8 +59,6 @@ class _MediaCoverageState extends State<MediaCoverage> {
           'https://www.5mgsite.com/post/wirewalk-a-futuristic-themed-zelda-game-where-you-have-to-face-a-computer-virus',
           Language.en),
       SingleMediaCoverage(
-          'https://www.alphabetagamer.com/wirewalk-beta-sign-up/', Language.en),
-      SingleMediaCoverage(
           'http://kopodo.com/2021/aman-lo-retro-entonces-no-se-pierdan-el-video-de-wirewalk%E2%86%B3-una-aventura-indie-para-steam/',
           Language.es)
     ];
@@ -145,7 +143,25 @@ class _MediaCoverageState extends State<MediaCoverage> {
                   Container(
                     height: 5,
                   ),
-                  Center(child: Container(height: 25, child: getFlag(smc.lang)))
+                  Container(
+                      height: 25,
+                      child: Row(children: [
+                        Expanded(
+                            child: AutoSizeText(
+                          Uri.parse(smc.url).host,
+                          minFontSize: 1,
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Constants.DARK,
+                              fontStyle: FontStyle.italic,
+                              fontFamily: 'Roboto'),
+                        )),
+                        Container(width: 10),
+                        getFlag(smc.lang),
+                        Container(
+                          width: 10,
+                        )
+                      ])),
                 ],
               ),
             ),
