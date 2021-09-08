@@ -2,6 +2,23 @@
     "list": [
         {
             "metadata": {
+                "website": "https://br.ign.com/indie/92725/news/wirewalk-e-um-belo-dungeon-crawler-indie-brasileiro",
+                "title": "Wirewalk()↳ é um belo dungeon crawler indie brasileiro",
+                "description": "Ostentando nostalgia 8-bits, Wirewalk()↳ é um dungeon crawler indie produzido pelo desenvolvedor brasileiro Danilo Ganzella, dev solo do estúdio debugChicken.",
+                "banner": "https://sm.ign.com/t/ign_br/screenshot/default/blob_mb91.1200.jpg"
+            },
+            "socials": {
+                "twitter:image": "https://sm.ign.com/t/ign_br/screenshot/default/blob_mb91.1200.jpg"
+            },
+            "favicons": [
+                "https://br.ign.com/indie/92725/news/wirewalk-e-um-belo-dungeon-crawler-indie-brasileiros/ign/favicon.ico",
+                "https://oystatic.ignimgs.com/src/core/img/favicon/safari_favicon.svg"
+            ],
+            "lang": "br",
+            "name": "ign"
+        },
+        {
+            "metadata": {
                 "website": "https://gametimes.com.br/wirewalk%E2%86%B3-e-um-jogo-100-nacional-e-sera-lancado-no-dia-23-de-setembro-na-steam/",
                 "title": "Wirewalk()↳: é um jogo 100% nacional e será lançado no dia 23 de setembro na Steam! - The Game Times",
                 "description": "A partir de 23 de setembro, estará disponível para download na Steam o game nacional independente Wirewalk()↳.",

@@ -5,6 +5,7 @@ const download = require('image-downloader')
 async function main() 
 {
     let websiteList = [
+        { name: 'ign', url: 'https://br.ign.com/indie/92725/news/wirewalk-e-um-belo-dungeon-crawler-indie-brasileiro', lang: 'br'},
         { name: 'gamestimes', url: 'https://gametimes.com.br/wirewalk%E2%86%B3-e-um-jogo-100-nacional-e-sera-lancado-no-dia-23-de-setembro-na-steam/', lang: 'br' },
         { name: 'fivemgsite', url: 'https://www.5mgsite.com/post/wirewalk-a-futuristic-themed-zelda-game-where-you-have-to-face-a-computer-virus', lang: 'us' },
         { name: 'subarashow', url: 'https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzella', lang: 'br' },
