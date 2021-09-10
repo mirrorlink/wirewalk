@@ -5,7 +5,7 @@ const download = require('image-downloader')
 async function main() 
 {
     let websiteList = [
-        { name: 'askgamedev', url: 'https://www.youtube.com/watch?v=Fb-V3y3TIxg', lang: 'en'},
+        { name: 'askgamedev', url: 'https://www.youtube.com/watch?v=Fb-V3y3TIxg', lang: 'us'},
         { name: 'canaltech', url: 'https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/', lang: 'br'},
         { name: 'ign', url: 'https://br.ign.com/indie/92725/news/wirewalk-e-um-belo-dungeon-crawler-indie-brasileiro', lang: 'br'},
         { name: 'gamestimes', url: 'https://gametimes.com.br/wirewalk%E2%86%B3-e-um-jogo-100-nacional-e-sera-lancado-no-dia-23-de-setembro-na-steam/', lang: 'br' },
