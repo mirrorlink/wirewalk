@@ -2,6 +2,46 @@
     "list": [
         {
             "metadata": {
+                "website": "https://www.youtube.com/watch?v=Fb-V3y3TIxg",
+                "title": "10 Awesome New Indie Games from the Ask Gamedev Community [+10 Tips!] - YouTube",
+                "description": "Today we’re sharing 10 awesome indie games from the Ask Gamedev community! But wait, there’s more… Each dev team has also provided a tip for new and aspiring...",
+                "banner": "https://i.ytimg.com/vi/Fb-V3y3TIxg/maxresdefault.jpg",
+                "themeColor": "rgba(255, 255, 255, 0.98)"
+            },
+            "socials": {},
+            "favicons": [
+                "https://www.youtube.com/s/desktop/8a85ed3f/img/favicon.ico",
+                "https://www.youtube.com/s/desktop/8a85ed3f/img/favicon_32x32.png",
+                "https://www.youtube.com/s/desktop/8a85ed3f/img/favicon_48x48.png",
+                "https://www.youtube.com/s/desktop/8a85ed3f/img/favicon_96x96.png",
+                "https://www.youtube.com/s/desktop/8a85ed3f/img/favicon_144x144.png"
+            ],
+            "lang": "en",
+            "name": "askgamedev"
+        },
+        {
+            "metadata": {
+                "website": "https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/",
+                "title": "Conheça Wirewalk()↳, dungeon crawler brasileiro para PC - Canaltech",
+                "description": "Desenvolvedor brasileiro Danilo Ganzella prometeu aventura com muito humor e cenários produzidos a mão",
+                "banner": "https://t.ctcdn.com.br/MhcwBYAyaXV5iiFuI6UHewpEurM=/1400x788/smart/i501006.jpeg",
+                "themeColor": "#222222"
+            },
+            "socials": {},
+            "favicons": [
+                "https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/favicon.ico?_=v1856",
+                "https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/favicon-16x16.png",
+                "https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/favicon-32x32.png",
+                "https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/apple-touch-icon.png",
+                "https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/apple-touch-icon-57x57.png",
+                "https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/apple-touch-icon-72x72.png",
+                "https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/apple-touch-icon-114x114.png"
+            ],
+            "lang": "br",
+            "name": "canaltech"
+        },
+        {
+            "metadata": {
                 "website": "https://br.ign.com/indie/92725/news/wirewalk-e-um-belo-dungeon-crawler-indie-brasileiro",
                 "title": "Wirewalk()↳ é um belo dungeon crawler indie brasileiro",
                 "description": "Ostentando nostalgia 8-bits, Wirewalk()↳ é um dungeon crawler indie produzido pelo desenvolvedor brasileiro Danilo Ganzella, dev solo do estúdio debugChicken.",
@@ -26,7 +66,7 @@
             },
             "socials": {},
             "favicons": [
-                "https://c0.wp.com/c/5.8/wp-includes/css/dashicons.min.css",
+                "https://c0.wp.com/c/5.8.1/wp-includes/css/dashicons.min.css",
                 "https://gametimes.com.br/wirewalk%E2%86%B3-e-um-jogo-100-nacional-e-sera-lancado-no-dia-23-de-setembro-na-steam//gametimes.com.br/wp-content/plugins/sportspress/assets/css/icons.css?ver=2.7",
                 "https://gametimes.com.br/wp-content/themes/jnews/assets/dist/font/jegicon.woff",
                 "https://gametimes.com.br/wp-content/uploads/2021/09/cropped-icon-game-times-32x32.jpg",

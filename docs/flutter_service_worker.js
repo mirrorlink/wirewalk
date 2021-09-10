@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "936fec826ee22385901e6864a4642b20",
+  "assets/AssetManifest.json": "fd8379036fa443c296d1d6b1aea213ce",
 "assets/assets/dani.png": "a19b024b1af00c73e08dff6f757e520d",
 "assets/assets/debugchicken.png": "18b28b20deeff9f29625bb06bd75e756",
 "assets/assets/logo.svg": "021d4f0b0beabb24547c2c559f578334",
@@ -46,6 +46,8 @@ const RESOURCES = {
 "assets/assets/ogimage.png": "fabbf65e1493387e662192235a1f2aca",
 "assets/assets/PressKit.zip": "9c06fca6945343f24b0abfdb16038bbb",
 "assets/assets/steam.svg": "262c66033d489035a285be1ac29ed4f4",
+"assets/assets/websitebanners/askgamedev.img": "7ac18c51eb24b4547a61269315c2de7e",
+"assets/assets/websitebanners/canaltech.img": "a4ce454d5aafd963e54a887e359fded2",
 "assets/assets/websitebanners/fivemgsite.img": "8d56efb8feda210e436aac72e8480aa2",
 "assets/assets/websitebanners/gamerview.img": "4b8aac6354562f92a1b42daa11ab8ee3",
 "assets/assets/websitebanners/gamestimes.img": "63b01ffe8b23cb9c5c09a904018f6364",
@@ -53,7 +55,7 @@ const RESOURCES = {
 "assets/assets/websitebanners/kopodo.img": "887d5cbef3e4fc56e687d14e4b56b53c",
 "assets/assets/websitebanners/subarashow.img": "839276a6be33b89af985e4126dbe23ac",
 "assets/assets/websitebanners/ultimaficha.img": "2f6a88b74a7abd1b4b9a4ff097db99b3",
-"assets/assets/websites.json": "88d40ec0c807c2c29e499e3c76de5b01",
+"assets/assets/websites.json": "cc8761f88f4a0bc05b7d87b117705f8c",
 "assets/FontManifest.json": "7ee0de62012dece06f3f50bd6cd230dc",
 "assets/fonts/Hollowcraft.ttf": "b958a041d7fd73663174e67fda568660",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
@@ -832,8 +834,8 @@ const RESOURCES = {
 "favicon.png": "e743ca1035ae5d03bdad11dd5da8a752",
 "icons/Icon-192.png": "5db454e745188cacc89b4731dba81552",
 "icons/Icon-512.png": "c14b20101b3029e70e24a640a34ce885",
-"index.html": "e1983a615e040c52fbcd02e3a3938ad2",
-"/": "e1983a615e040c52fbcd02e3a3938ad2",
+"index.html": "4c6507b05c56fcec5004af70e1a471c0",
+"/": "4c6507b05c56fcec5004af70e1a471c0",
 "main.dart.js": "98bd12a41560c700128c8768612c810d",
 "manifest.json": "5d9c00fba18bc5084fa70cb89413d60e",
 "version.json": "494ba1fbbbdc56d8d64a1be4199896dc"
