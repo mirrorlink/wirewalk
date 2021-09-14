@@ -8,6 +8,7 @@ async function main()
         { name: 'askgamedev', url: 'https://www.youtube.com/watch?v=Fb-V3y3TIxg', lang: 'us'},
         { name: 'canaltech', url: 'https://canaltech.com.br/jogos-para-pc/conheca-wirewalk-dungeon-crawler-brasileiro-para-pc-195291/', lang: 'br'},
         { name: 'ign', url: 'https://br.ign.com/indie/92725/news/wirewalk-e-um-belo-dungeon-crawler-indie-brasileiro', lang: 'br'},
+        { name: 'boletimnerd', url: 'https://www.boletimnerd.com.br/wirewalk-game-nacional-chega-a-steam-no-dia-23/', lang: 'br'},
         { name: 'gamestimes', url: 'https://gametimes.com.br/wirewalk%E2%86%B3-e-um-jogo-100-nacional-e-sera-lancado-no-dia-23-de-setembro-na-steam/', lang: 'br' },
         { name: 'fivemgsite', url: 'https://www.5mgsite.com/post/wirewalk-a-futuristic-themed-zelda-game-where-you-have-to-face-a-computer-virus', lang: 'us' },
         { name: 'subarashow', url: 'https://www.subarashow.com.br/podcast/subarashow-32-wirewalk-e-a-dificuldade-pra-criacao-de-jogos-indies-com-danilo-ganzella', lang: 'br' },
