@@ -13,6 +13,7 @@ class Footer extends StatefulWidget {
 
 class _FooterState extends State<Footer> {
   final IFrameElement _steamFrame = IFrameElement();
+  final IFrameElement _itchFrame = IFrameElement();
 
   @override
   void initState() {
@@ -22,10 +23,21 @@ class _FooterState extends State<Footer> {
     _steamFrame.src = 'https://store.steampowered.com/widget/1636700/';
     _steamFrame.style.border = 'none';
 
+    _itchFrame.width = '552';
+    _itchFrame.height = '167';
+    _itchFrame.src = 'https://itch.io/embed/1241097';
+    _itchFrame.style.border = 'none';
+
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
       'steamFrame',
       (int viewId) => _steamFrame,
+    );
+
+    // ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+      'itchFrame',
+      (int viewId) => _itchFrame,
     );
   }
 
@@ -40,6 +52,10 @@ class _FooterState extends State<Footer> {
               height: 80,
             ),
             steamWidget(),
+            Container(
+              height: 40,
+            ),
+            itchWidget(),
             //wishListNow(),
             Container(
               height: 80,
@@ -82,6 +98,16 @@ class _FooterState extends State<Footer> {
         child: HtmlElementView(
           key: UniqueKey(),
           viewType: 'steamFrame',
+        ));
+  }
+
+  Widget itchWidget() {
+    return SizedBox(
+        height: 167,
+        width: 552,
+        child: HtmlElementView(
+          key: UniqueKey(),
+          viewType: 'itchFrame',
         ));
   }
 
